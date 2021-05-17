@@ -1,0 +1,40 @@
+{% extends "layout.html" %} {% block title %}Pocket Certificate{% endblock %} {%
+block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='index.css') }}"
+/>
+{% endblock %} {% block content %}
+
+<div class="full-page">
+  <div class="container">
+    <h1>Login as</h1>
+    <hr />
+    <div class="container">
+      <div class="row">
+        <div class="card shadow-lg m-5 p-5 text-center">
+          <img
+            class="card-img-top"
+            src="{{ url_for('static', filename='admin.jpg') }}"
+            alt="admin"
+          />
+          <div class="card-body">
+            <h3>Admin</h3>
+          </div>
+        </div>
+        <div class="card shadow-lg m-5 p-5 text-center">
+          <img
+            class="card-img-top"
+            src="{{ url_for('static', filename='citizen.jpg') }}"
+            alt="citizen"
+          />
+          <div class="card-body">
+            <h3>Citizen</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

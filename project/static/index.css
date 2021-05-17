@@ -1,0 +1,19 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+.full-page {
+  height: 100vh;
+  background-color: lightblue;
+}
+
+.white {
+  background-color: white;
+  text-align: center;
+}
+
+.card {
+  width: unset;
+  border-radius: 50px;
+}
