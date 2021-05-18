@@ -13,16 +13,28 @@ def adminLogin():
     return render_template("login.html")
 
 @app.route('/admin/dashboard')
+def adminDashboard():
+    return render_template("admin-dashboard.html")
 
 @app.route('/admin/add-citizen')
+def addCitizen():
+    return render_template("admin-add-citizen.html")
 
 @app.route('/admin/manage-citizen')
+def manageCitizen():
+    return render_template("admin-manage-citizen.html")
 
-@app.route('/admin/add-document')
+@app.route('/admin/add-doc')
+def addDoc():
+    return render_template("admin-add-doc.html")
 
-@app.route('/admin/manage-documents')
+@app.route('/admin/manage-doc')
+def manageDoc():
+    return render_template("admin-manage-doc.html")
 
 @app.route('/admin/view-feedbacks')
+def viewFeedback():
+    return render_template("admin-view-feedback.html")
 
 # ------------------------------- CITIZEN ------------------------------------
 
@@ -30,9 +42,13 @@ def adminLogin():
 def citizenLogin():
     return render_template("login.html")
 
-@app.route('/citizen/documents')
+@app.route('/citizen/doc')
+def viewDoc():
+    return render_template("citizen-view-doc.html")
 
 @app.route('/citizen/feedback')
+def giveFeedback():
+    return render_template("citizen-give-feedback.html")
 
 if __name__=='__main__':
 	app.run(debug=True)
