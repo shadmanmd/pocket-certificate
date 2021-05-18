@@ -6,9 +6,33 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/login')
-def login():
+# ------------------------------- ADMIN ------------------------------------
+
+@app.route('/admin/login')
+def adminLogin():
     return render_template("login.html")
+
+@app.route('/admin/dashboard')
+
+@app.route('/admin/add-citizen')
+
+@app.route('/admin/manage-citizen')
+
+@app.route('/admin/add-document')
+
+@app.route('/admin/manage-documents')
+
+@app.route('/admin/view-feedbacks')
+
+# ------------------------------- CITIZEN ------------------------------------
+
+@app.route('/citizen/login')
+def citizenLogin():
+    return render_template("login.html")
+
+@app.route('/citizen/documents')
+
+@app.route('/citizen/feedback')
 
 if __name__=='__main__':
 	app.run(debug=True)

@@ -3,17 +3,20 @@ body {
   overflow-x: hidden;
 }
 
-.full-page {
-  height: 100vh;
-  background-color: lightblue;
+.white {
+  text-align: center;
 }
 
-.white {
-  background-color: white;
-  text-align: center;
+.row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
   width: unset;
-  border-radius: 50px;
+}
+
+a {
+  text-decoration: none;
 }

@@ -1,4 +1,31 @@
-{% extends "layout.html" %} {% block title %}Login{% endblock %} {% block css %}
+{% extends "layout.html" %} {% block title %}Login{% endblock %} {% block css
+%}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='login.css') }}"
+/>
 {% endblock %} {% block content %}
-<h1>Login</h1>
+<div class="full-page d-flex align-items-center text-center">
+  <form class="text-center border rounded border-5 p-5 shadow">
+    <h1 class="mb-3">Login</h1>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+      />
+      <label for="floatingInput">User ID</label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+      />
+      <label for="floatingPassword">Password</label>
+    </div>
+  </form>
+</div>
 {% endblock %}
