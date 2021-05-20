@@ -1,0 +1,12 @@
+{% extends "layout.html" %} {% block title %}Admin Dashboard{% endblock %} {%
+block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='admin-dashboard.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="row full-page">
+  <div class="col-2"></div>
+  <div class="col-10"></div>
+</div>
+{% endblock %}

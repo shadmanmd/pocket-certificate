@@ -10,7 +10,7 @@ def index():
 
 @app.route('/admin/login')
 def adminLogin():
-    return render_template("login.html")
+    return render_template("login.html", value="Admin")
 
 @app.route('/admin/dashboard')
 def adminDashboard():
@@ -40,7 +40,7 @@ def viewFeedback():
 
 @app.route('/citizen/login')
 def citizenLogin():
-    return render_template("login.html")
+    return render_template("login.html", value="Citizen")
 
 @app.route('/citizen/doc')
 def viewDoc():
