@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block title %}Citizen | Dashboard{% endblock %}
+{% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome {{UserName}}</a>
+  <div class="float-end">
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container">
+  <div class="row pb-5">
+    <div class="col-6 text-center">
+      <a
+        class="btn btn-lg btn-outline-info m-4"
+        role="button"
+        href="/citizen/doc"
+      >
+        <h1><i class="fas fa-file"></i> View Documents</h1>
+      </a>
+    </div>
+    <div class="col-6 text-center">
+      <a
+        class="btn btn-lg btn-outline-info m-4"
+        role="button"
+        href="/citizen/feedback"
+      >
+        <h1><i class="fas fa-comments"></i> Give Feedback</h1>
+      </a>
+    </div>
+  </div>
+  <h1>Your Profile</h1>
+  <hr />
+</div>
+{% endblock %}

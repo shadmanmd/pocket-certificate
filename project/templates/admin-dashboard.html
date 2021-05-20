@@ -1,13 +1,62 @@
 {% extends "layout.html" %} {% block title %}Admin | Dashboard{% endblock %} {%
 block content %}
-<div>
-  <nav class="navbar navbar-light bg-info p-2">
-    <a href="#" class="navbar-brand">Welcome Admin</a>
-    <div class="float-end">
-      <a href="#" class="btn btn-sm btn-danger" role="button"
-        ><i class="fas fa-power-off"></i> LOGOUT</a
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <div class="row">
+    <div class="col-6 text-center">
+      <a
+        class="btn btn-lg btn-outline-info m-5"
+        role="button"
+        href="/admin/add-citizen"
       >
+        <h1><i class="fas fa-user"></i> Add Citizen</h1>
+      </a>
     </div>
-  </nav>
+    <div class="col-6 text-center">
+      <a
+        class="btn btn-lg btn-outline-info m-5"
+        role="button"
+        href="/admin/manage-citizen"
+      >
+        <h1><i class="fas fa-users"></i> Manage Citizens</h1>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 text-center">
+      <a
+        class="btn btn-lg btn-outline-info m-5"
+        role="button"
+        href="/admin/add-doc"
+      >
+        <h1><i class="fas fa-file"></i> Add Document</h1>
+      </a>
+    </div>
+    <div class="col-6 text-center">
+      <a
+        class="btn btn-lg btn-outline-info mx-4 my-5"
+        role="button"
+        href="/admin/manage-doc"
+      >
+        <h1><i class="fas fa-file-alt"></i> Manage Documents</h1>
+      </a>
+    </div>
+  </div>
+  <div class="text-center">
+    <a
+      class="btn btn-lg btn-outline-info m-5"
+      role="button"
+      href="/admin/view-feedbacks"
+    >
+      <h1><i class="fas fa-comments"></i> View Feedbacks</h1>
+    </a>
+  </div>
 </div>
 {% endblock %}

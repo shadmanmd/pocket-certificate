@@ -42,6 +42,10 @@ def viewFeedback():
 def citizenLogin():
     return render_template("login.html", value="Citizen")
 
+@app.route('/citizen/dashboard')
+def citizenDashboard():
+    return render_template("citizen-dashboard.html")
+
 @app.route('/citizen/doc')
 def viewDoc():
     return render_template("citizen-view-doc.html")
