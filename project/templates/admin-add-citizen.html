@@ -1,0 +1,128 @@
+{% extends "layout.html" %} {% block title %}Admin | Add Citizen{% endblock %}
+{% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1>Add Citizen</h1>
+  <hr />
+  <form class="pt-3 px-5">
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="citizen-id" class="form-label">Citizen ID</label>
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="citizen-id"
+              name="citizen-id"
+              readonly
+              value="citizen-id"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="email-id" class="form-label"
+              >Email ID <span style="color: red">*</span>
+            </label>
+          </div>
+          <div class="col-9">
+            <input
+              type="email"
+              class="form-control"
+              id="email-id"
+              name="email-id"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="name" class="form-label"
+              >Name <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="contact-no" class="form-label"
+              >Contact No. <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="contact-no"
+              name="contact-no"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="address" class="form-label"
+              >Address <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <textarea
+              class="form-control"
+              id="address"
+              name="address"
+              value="address"
+              required
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="image" class="form-label">Profile Photo</label>
+          </div>
+          <div class="col-9">
+            <input type="file" class="form-control" id="image" name="image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-2">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
