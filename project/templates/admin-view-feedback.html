@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block title %}Admin | View Feedbacks{% endblock
+%} {% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1 class="pb-2">View Feedbacks</h1>
+  <table class="table table-hover table-bordered border-info">
+    <thead class="table-info">
+      <tr>
+        <td><strong>Timestamp</strong></td>
+        <td><strong>Citizen ID</strong></td>
+        <td><strong>Citizen Name</strong></td>
+        <td><strong>Feedback</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <td>1</td>
+      <td>Check</td>
+      <td>Check</td>
+      <td>Check</td>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

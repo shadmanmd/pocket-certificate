@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block title %}Admin | Manage Citizens{% endblock
+%} {% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1 class="pb-2">Manage Citizens</h1>
+  <table class="table table-hover table-bordered border-info">
+    <thead class="table-info">
+      <tr>
+        <td><strong>Citizen ID</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>Email ID</strong></td>
+        <td><strong>Edit / Delete</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <td>1</td>
+      <td>Check</td>
+      <td>check</td>
+      <td>
+        <a href="#" class="btn btn-sm btn-outline-dark"
+          ><i class="fas fa-pencil-alt"></i
+        ></a>
+        <!-- onclick="confirmDelete(this)" -->
+        <a href="#" class="btn btn-sm btn-outline-dark"
+          ><i class="fas fa-trash-alt"></i
+        ></a>
+      </td>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
