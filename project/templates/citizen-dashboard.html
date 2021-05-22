@@ -29,7 +29,24 @@
       </a>
     </div>
   </div>
-  <h1>Your Profile</h1>
-  <hr />
+  <div class="container">
+    <h1>Your Profile</h1>
+    <hr />
+    <img
+      style="height: 200px; width: 200px"
+      class="img-thumbnail float-end"
+      src="{{ url_for('static', filename='user.png') }}"
+      alt="user-img"
+    />
+    <p>
+      <strong>Citizen ID: </strong> Test <br />
+      <strong>Name: </strong> Test <br />
+      <strong>Email ID: </strong> Test <br />
+      <strong>Contact No.: </strong> Test <br />
+      <strong>Gender: </strong> Test <br />
+      <strong>Date of Birth: </strong> Test <br />
+      <strong>Address: </strong> Test <br />
+    </p>
+  </div>
 </div>
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block title %}Citizen | Give Feedback{% endblock
+%} {% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome {{username}}</a>
+  <div class="float-end">
+    <a href="/citizen/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1>Give a Feedback</h1>
+  <hr />
+  <form class="pt-3 px-5">
+    <textarea
+      name="feedback"
+      class="form-control"
+      placeholder="Type your valuable feedback here"
+      required
+      rows="10"
+    ></textarea>
+    <div class="text-center p-2">
+      <button type="submit" class="btn btn-primary">Send Feedback</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

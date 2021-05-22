@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block title %}Citizen | View Documents{% endblock
+%} {% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome {{username}}</a>
+  <div class="float-end">
+    <a href="/citizen/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1 class="pb-2">View Documents</h1>
+  <table class="table table-hover table-bordered border-info">
+    <thead class="table-info">
+      <tr>
+        <td><strong>Document Type</strong></td>
+        <td><strong>Download Document</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <td>Aadhaar</td>
+      <td><a href="#">Filename</a></td>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
