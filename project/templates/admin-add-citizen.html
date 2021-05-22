@@ -98,6 +98,43 @@
       <div class="col-6">
         <div class="row">
           <div class="col-3">
+            <label for="dob" class="form-label"
+              >Date of Birth<span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              type="date"
+              class="form-control"
+              id="dob"
+              name="dob"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="gender" class="form-label"
+              >Gender <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <select name="gender" class="form-select" id="gender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+              <option value="driving">Driving Licence</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
             <label for="address" class="form-label"
               >Address <span style="color: red">*</span></label
             >
