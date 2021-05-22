@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from helper import *;
+from helper import *
+
 
 app = Flask(__name__)
 
@@ -20,7 +21,8 @@ def adminDashboard():
 @app.route('/admin/add-citizen', methods=['GET', 'POST'])
 def addCitizen():
     if request.method=='POST':
-        print(request.form)
+        msg = adminAddCitizen(request.form,request.files)
+        print(msg)
     return render_template("admin-add-citizen.html")
 
 @app.route('/admin/manage-citizen')
