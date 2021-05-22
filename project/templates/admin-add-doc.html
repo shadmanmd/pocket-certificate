@@ -1,0 +1,76 @@
+{% extends "layout.html" %} {% block title %}Admin | Add Document{% endblock %}
+{% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1>Add Document</h1>
+  <hr />
+  <form class="pt-3 px-5">
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="select-doc"
+          >Select the type of document <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <select class="form-select" id="select-for" required>
+          <option value="aadhaar">Aadhaar Card</option>
+          <option value="pan">PAN Card</option>
+          <option value="voter-id">Voter ID Card</option>
+          <option value="driving">Driving Licence</option>
+        </select>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="citizen-id"
+          >Citizen ID of the citizen for whom the document is added
+          <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <input
+          type="text"
+          name="citizen-id"
+          id="citizen-id"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="key"
+          >Set a private key for the document
+          <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <input type="text" name="key" id="key" class="form-control" required />
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="doc"
+          >Upload document <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <input type="file" name="doc" id="doc" class="form-control" required />
+      </div>
+    </div>
+    <div class="text-center p-2">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
