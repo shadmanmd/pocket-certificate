@@ -1,7 +1,6 @@
 from os import error
 import sqlite3 as sql;
 from werkzeug.utils import secure_filename;
-import os;
 
 def convertToBinaryData(fileName):
     try:
@@ -25,7 +24,7 @@ def adminAddCitizen(form,files):
         image_BLOB = convertToBinaryData(fileName)
         
 
-        print(citizen_id,email_id,name,contact_no,dob,gender,address,image_BLOB)
+        #print(citizen_id,email_id,name,contact_no,dob,gender,address,image_BLOB)
 
         conn = sql.connect("database/pocket-certificate-db.db")
         print("Conection made with the database")
@@ -41,7 +40,7 @@ def adminAddCitizen(form,files):
         print("Query executed")
 
         return "Citizen added successfully"
-    except sql.Error as e:
+    except Exception as e:
         print("ERROR : ",e)
         return "Error in adding citizen"
     finally:

@@ -14,7 +14,9 @@
 <div class="container p-5">
   <h1>Add Document</h1>
   <hr />
-  <form class="pt-3 px-5">
+  <form class="pt-3 px-5" action="http://localhost:5000/admin/add-doc"
+  method="POST"
+  enctype="multipart/form-data">
     <div class="row p-2">
       <div class="col-6">
         <label for="select-doc"
@@ -25,7 +27,7 @@
         <select name="doc-type" class="form-select" id="select-for" required>
           <option value="aadhaar">Aadhaar Card</option>
           <option value="pan">PAN Card</option>
-          <option value="voter-id">Voter ID Card</option>
+          <option value="voter">Voter ID Card</option>
           <option value="driving">Driving Licence</option>
         </select>
       </div>
