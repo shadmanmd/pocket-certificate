@@ -21,6 +21,7 @@ def adminAddDoc(form,files):
         curr = conn.cursor()
         print("Cursor created")
 
+        #Check if document already exists or not
         query = "SELECT "+doc_key+" FROM citizen WHERE citizen_id = ?"
         curr.execute(query,(citizen_id,))
         row = curr.fetchone()
