@@ -21,14 +21,20 @@ def adminAddDoc(form,files):
         curr = conn.cursor()
         print("Cursor created")
 
-        query = "UPDATE citizen SET "+doc_id+" =?, "+doc_key+" =?  WHERE citizen_id = ?"
-        curr.execute(query,(doc_BLOB,private_key,citizen_id))
-        print("Query execution in progress")
+        query = "SELECT "+doc_key+" FROM citizen WHERE citizen_id = ?"
+        curr.execute(query,(citizen_id,))
+        row = curr.fetchone()
+        if(row[0]):
+            return upper(doc_type)+" ID already exists for citizen-id : "+citizen_id+" You can view edit/delete the document from manage documents section."
+        else:
+            query = "UPDATE citizen SET "+doc_id+" =?, "+doc_key+" =?  WHERE citizen_id = ?"
+            curr.execute(query,(doc_BLOB,private_key,citizen_id))
+            print("Query execution in progress")
 
-        conn.commit()
-        print("Query executed")
+            conn.commit()
+            print("Query executed")
 
-        return "Document added successfully"
+            return "Document added successfully"
     except Exception as e:
         print("ERROR : ",e)
         return "Error in adding document"
