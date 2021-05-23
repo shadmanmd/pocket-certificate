@@ -48,7 +48,7 @@ def adminAddDoc(form,files):
         curr.execute(query,(citizen_id,))
         row = curr.fetchone()
         if(row[0]):
-            return upper(doc_type)+" ID already exists for citizen-id : "+citizen_id+" You can view edit/delete the document from manage documents section."
+            return doc_type.upper()+" ID already exists for citizen-id : "+citizen_id+" You can edit/delete the document from manage documents section."
         else:
             query = "UPDATE citizen SET "+doc_id+" =?, "+doc_key+" =?  WHERE citizen_id = ?"
             curr.execute(query,(doc_BLOB,private_key,citizen_id))
