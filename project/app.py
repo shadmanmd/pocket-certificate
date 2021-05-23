@@ -31,10 +31,11 @@ def manageCitizen():
 
 @app.route('/admin/add-doc', methods=['GET', 'POST'])
 def addDoc():
+    citizen_id_list = getCitizenId()
+    msg=""
     if request.method=='POST':
         msg = adminAddDoc(request.form,request.files)
-        print(msg)
-    return render_template("admin-add-doc.html")
+    return render_template("admin-add-doc.html",citizen_id_list=citizen_id_list,msg=msg)
 
 @app.route('/admin/manage-doc')
 def manageDoc():

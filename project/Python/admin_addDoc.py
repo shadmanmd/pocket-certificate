@@ -2,6 +2,28 @@ import sqlite3 as sql;
 from werkzeug.utils import secure_filename;
 from Python.admin_addCitizen import convertToBinaryData
 
+def getCitizenId():
+    try: 
+        conn = sql.connect("database/pocket-certificate-db.db")
+        print("Conection made with the database")
+
+        conn.row_factory = sql.Row
+
+        curr = conn.cursor()
+        print("Cursor created")
+
+        query = "SELECT citizen_id FROM citizen "
+        curr.execute(query)
+        row = curr.fetchall()
+        return row
+        
+    except Exception as e:
+        print("ERROR : ",e)
+        return "Error in adding document"
+    finally:
+        curr.close()
+        conn.close()
+
 def adminAddDoc(form,files):
     try: 
         doc_type = form["doc-type"]
