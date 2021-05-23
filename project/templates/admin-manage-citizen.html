@@ -23,18 +23,22 @@
       </tr>
     </thead>
     <tbody>
-      <td>1</td>
-      <td>Check</td>
-      <td>check</td>
-      <td>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-pencil-alt"></i
-        ></a>
-        <!-- onclick="confirmDelete(this)" -->
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-trash-alt"></i
-        ></a>
-      </td>
+      {% for citizen in citizenDetail_list %}
+        <tr>
+          <td>{{ citizen["citizen_id"] }}</td>
+          <td>{{ citizen["name"] }}</td>
+          <td>{{ citizen["email"] }}</td>
+          <td>
+            <a href="#" class="btn btn-sm btn-outline-dark"
+              ><i class="fas fa-pencil-alt"></i
+            ></a>
+            <!-- onclick="confirmDelete(this)" -->
+            <a href="#" class="btn btn-sm btn-outline-dark"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
+          </td>
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>

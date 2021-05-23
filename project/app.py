@@ -38,7 +38,8 @@ def addCitizen():
 
 @app.route('/admin/manage-citizen')
 def manageCitizen():
-    return render_template("admin-manage-citizen.html")
+    citizenDetail_list = getCitizenDetails()
+    return render_template("admin-manage-citizen.html",citizenDetail_list=citizenDetail_list)
 
 @app.route('/admin/add-doc', methods=['GET', 'POST'])
 def addDoc():
