@@ -12,8 +12,8 @@
   </div>
 </nav>
 <div class="container p-5">
-  {% if msg %}
-  <div class="alert alert-info alert-dismissible fade show" role="alert">
+  {% if msg %} {% if msg[0]=='C' %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ msg }}
     <button
       type="button"
@@ -22,7 +22,17 @@
       aria-label="Close"
     ></button>
   </div>
-  {% endif %}
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %} {% endif %}
   <h1>Add Citizen</h1>
   <hr />
   <form
