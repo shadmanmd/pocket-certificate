@@ -12,6 +12,17 @@
   </div>
 </nav>
 <div class="container p-5">
+  {% if msg %}
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %}
   <h1>Add Citizen</h1>
   <hr />
   <form
@@ -33,7 +44,7 @@
               id="citizen-id"
               name="citizen-id"
               readonly
-              value="citizen-id"
+              value="{{ citizenID }}"
             />
           </div>
         </div>
@@ -85,7 +96,7 @@
           </div>
           <div class="col-9">
             <input
-              type="number"
+              type="tel"
               class="form-control"
               id="contact-no"
               name="contact-no"

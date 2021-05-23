@@ -22,8 +22,22 @@ def adminDashboard():
 def addCitizen():
     if request.method=='POST':
         msg = adminAddCitizen(request.form,request.files)
-        print(msg)
-    return render_template("admin-add-citizen.html")
+        file = open('citizen-id.txt')
+        newCitizenID = int(file.read()) + 1
+        file.close()
+        file = open('citizen-id.txt', 'w')
+        file.write(str(newCitizenID))
+        file.close()
+        file = open('citizen-id.txt')
+        citizenID = 'CTZ' + file.read()
+        file.close()
+        return render_template("admin-add-citizen.html", citizenID=citizenID, msg=msg)
+    else:
+        file = open('citizen-id.txt')
+        citizenID = 'CTZ' + file.read()
+        print(citizenID)
+        file.close()
+        return render_template("admin-add-citizen.html", citizenID=citizenID)
 
 @app.route('/admin/manage-citizen')
 def manageCitizen():
