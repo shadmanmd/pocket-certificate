@@ -14,9 +14,12 @@
 <div class="container p-5">
   <h1>Add Document</h1>
   <hr />
-  <form class="pt-3 px-5" action="http://localhost:5000/admin/add-doc"
-  method="POST"
-  enctype="multipart/form-data">
+  <form
+    class="pt-3 px-5"
+    action="http://localhost:5000/admin/add-doc"
+    method="POST"
+    enctype="multipart/form-data"
+  >
     <div class="row p-2">
       <div class="col-6">
         <label for="select-doc"
@@ -24,7 +27,7 @@
         >
       </div>
       <div class="col-6">
-        <select name="doc-type" class="form-select" id="select-for" required>
+        <select name="doc-type" class="form-select" id="select-doc" required>
           <option value="aadhaar">Aadhaar Card</option>
           <option value="pan">PAN Card</option>
           <option value="voter">Voter ID Card</option>
@@ -40,13 +43,13 @@
         >
       </div>
       <div class="col-6">
-        <input
-          type="text"
-          name="citizen-id"
-          id="citizen-id"
-          class="form-control"
-          required
-        />
+        <select name="doc-type" class="form-select" id="citizen-id" required>
+          {% for citizen in citizen_id_list %}
+          <option value="{{ citizen['citizen_id'] }}">
+            {{ citizen['citizen_id'] }}
+          </option>
+          {% endfor %}
+        </select>
       </div>
     </div>
     <div class="row p-2">

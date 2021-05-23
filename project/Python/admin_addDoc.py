@@ -26,6 +26,7 @@ def getCitizenId():
 
 def adminAddDoc(form,files):
     try: 
+        print("In try")
         doc_type = form["doc-type"]
         citizen_id = form["citizen-id"]
         private_key = form["key"]

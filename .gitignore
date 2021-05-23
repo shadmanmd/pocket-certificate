@@ -1,3 +1,2 @@
 env
-/project/__pycache__
-/project/Python/__pycache__
+*__pycache__*
