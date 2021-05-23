@@ -25,56 +25,68 @@
       </tr>
     </thead>
     <tbody>
-      <td>1</td>
-      <td>Check</td>
-      <td>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-download"></i
-        ></a>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-pencil-alt"></i
-        ></a>
-        <!-- onclick="confirmDelete(this)" -->
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-trash-alt"></i
-        ></a>
-      </td>
-      <td>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-download"></i
-        ></a>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-pencil-alt"></i
-        ></a>
-        <!-- onclick="confirmDelete(this)" -->
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-trash-alt"></i
-        ></a>
-      </td>
-      <td>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-download"></i
-        ></a>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-pencil-alt"></i
-        ></a>
-        <!-- onclick="confirmDelete(this)" -->
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-trash-alt"></i
-        ></a>
-      </td>
-      <td>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-download"></i
-        ></a>
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-pencil-alt"></i
-        ></a>
-        <!-- onclick="confirmDelete(this)" -->
-        <a href="#" class="btn btn-sm btn-outline-dark"
-          ><i class="fas fa-trash-alt"></i
-        ></a>
-      </td>
+      {% for doc in doc_list %}
+      <tr>
+        <td>{{ doc["citizen_id"] }}</td>
+        <td>{{ doc["name"] }}</td>
+        <td>
+          {% if doc["aadhaar_id"]==None %} Not Available {% else %}
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-download"></i
+          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-pencil-alt"></i
+          ></a>
+          <!-- onclick="confirmDelete(this)" -->
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-trash-alt"></i
+          ></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if doc["pan_id"]==None %} Not Available {% else %}
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-download"></i
+          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-pencil-alt"></i
+          ></a>
+          <!-- onclick="confirmDelete(this)" -->
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-trash-alt"></i
+          ></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if doc["voter_id"]==None %} Not Available {% else %}
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-download"></i
+          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-pencil-alt"></i
+          ></a>
+          <!-- onclick="confirmDelete(this)" -->
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-trash-alt"></i
+          ></a>
+          {% endif %}
+        </td>
+        <td>
+          {% if doc["driving_id"]==None %} Not Available {% else %}
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-download"></i
+          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-pencil-alt"></i
+          ></a>
+          <!-- onclick="confirmDelete(this)" -->
+          <a href="#" class="btn btn-sm btn-outline-dark"
+            ><i class="fas fa-trash-alt"></i
+          ></a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>

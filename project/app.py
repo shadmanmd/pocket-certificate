@@ -52,7 +52,8 @@ def addDoc():
 
 @app.route('/admin/manage-doc')
 def manageDoc():
-    return render_template("admin-manage-doc.html")
+    doc_list = getDocDetails()
+    return render_template("admin-manage-doc.html", doc_list=doc_list)
 
 @app.route('/admin/view-feedbacks')
 def viewFeedback():
