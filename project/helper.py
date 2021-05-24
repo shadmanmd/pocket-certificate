@@ -6,3 +6,4 @@ from Python.admin_downloadAadhaar import *
 from Python.admin_downloadPan import *
 from Python.admin_downloadDriving import *
 from Python.admin_downloadVoter import *
+from Python.admin_deleteAadhaar import *

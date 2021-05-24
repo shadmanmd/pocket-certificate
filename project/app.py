@@ -75,14 +75,14 @@ def downloadDriving(citizen_id):
     return adminDownloadDriving(citizen_id)
     return redirect(url_for('manageDoc'))
 
+@app.route('/delete/aadhaar_id/<citizen_id>')
+def deleteAadhaar(citizen_id):
+    msg = adminDeleteAadhaar(citizen_id)
+    return render_template("admin-manage-doc.html", msg=msg) 
+
 @app.route('/admin/view-feedbacks')
 def viewFeedback():
     return render_template("admin-view-feedback.html")
-
-@app.route('/admin/aadhaar_id/edt/<citizen_id>')
-def editAadhaar(citizen_id=0):
-    print(citizen_id)
-    return render_template("admin-edit-doc.html")
 
 # ------------------------------- CITIZEN ------------------------------------
 
