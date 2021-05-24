@@ -29,86 +29,86 @@
       <tr>
         <td>{{ doc["citizen_id"] }}</td>
         <td>{{ doc["name"] }}</td>
-        <td>
+        <td class="text-center">
           {% if doc["aadhaar_id"]==None %}
-          <a href="#" class="btn btn-sm btn-warning" title="Upload"
-            ><i class="fas fa-upload"></i
-          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+            ><i class="fas fa-upload"></i> Upload</a
+          >
           {% else %}
           <a
             title="Download"
             href="/downloads/aadhaar_id/{{doc['citizen_id']}}"
-            class="btn btn-sm btn-success"
+            class="btn btn-sm btn-outline-success"
             ><i class="fas fa-download"></i
           ></a>
           <a
             href="/admin/aadhaar_id/edt/{{ doc['citizen_id'] }}"
-            class="btn btn-sm btn-info"
+            class="btn btn-sm btn-outline-primary"
             title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-danger" title="Delete"
+          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
         </td>
-        <td>
+        <td class="text-center">
           {% if doc["pan_id"]==None %}
-          <a href="#" class="btn btn-sm btn-warning" title="Upload"
-            ><i class="fas fa-upload"></i
-          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+            ><i class="fas fa-upload"></i> Upload</a
+          >
           {% else %}
           <a
             title="Download"
             href="/downloads/pan_id/{{doc['citizen_id']}}"
-            class="btn btn-sm btn-success"
+            class="btn btn-sm btn-outline-success"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-info" title="Edit"
+          <a href="#" class="btn btn-sm btn-outline-primary" title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-danger" title="Delete"
+          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
         </td>
-        <td>
+        <td class="text-center">
           {% if doc["voter_id"]==None %}
-          <a href="#" class="btn btn-sm btn-warning" title="Upload"
-            ><i class="fas fa-upload"></i
-          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+            ><i class="fas fa-upload"></i> Upload</a
+          >
           {% else %}
           <a
             title="Download"
             href="/downloads/voter_id/{{doc['citizen_id']}}"
-            class="btn btn-sm btn-success"
+            class="btn btn-sm btn-outline-success"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-info" title="Edit"
+          <a href="#" class="btn btn-sm btn-outline-primary" title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-danger" title="Delete"
+          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
         </td>
         <td class="text-center">
           {% if doc["driving_id"]==None %}
-          <a href="#" class="btn btn-sm btn-warning" title="Upload"
-            ><i class="fas fa-upload"></i
-          ></a>
+          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+            ><i class="fas fa-upload"></i> Upload</a
+          >
           {% else %}
-          <a href="#" class="btn btn-sm btn-success" title="Download"
+          <a href="#" class="btn btn-sm btn-outline-success" title="Download"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-info" title="Edit"
+          <a href="#" class="btn btn-sm btn-outline-primary" title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-danger" title="Delete"
+          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
