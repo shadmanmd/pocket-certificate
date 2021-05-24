@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from helper import *
 
 
@@ -78,7 +78,22 @@ def downloadDriving(citizen_id):
 @app.route('/delete/aadhaar_id/<citizen_id>')
 def deleteAadhaar(citizen_id):
     msg = adminDeleteAadhaar(citizen_id)
-    return render_template("admin-manage-doc.html", msg=msg) 
+    return redirect(url_for('manageDoc'))
+
+@app.route('/delete/pan_id/<citizen_id>')
+def deletePan(citizen_id):
+    msg = adminDeletePan(citizen_id)
+    return redirect(url_for('manageDoc'))
+
+@app.route('/delete/voter_id/<citizen_id>')
+def deleteVoter(citizen_id):
+    msg = adminDeleteVoter(citizen_id)
+    return redirect(url_for('manageDoc'))
+
+@app.route('/delete/driving_id/<citizen_id>')
+def deleteDriving(citizen_id):
+    msg = adminDeleteDriving(citizen_id)
+    return redirect(url_for('manageDoc'))
 
 @app.route('/admin/view-feedbacks')
 def viewFeedback():

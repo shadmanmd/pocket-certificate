@@ -12,6 +12,27 @@
   </div>
 </nav>
 <div class="container p-5">
+  {% if msg %} {% if msg[0]=='D' %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %} {% endif %}
   <h1 class="pb-2">Manage Documents</h1>
   <table class="table table-hover table-bordered border-info">
     <thead class="table-info">
@@ -41,10 +62,13 @@
             class="btn btn-sm btn-outline-success"
             ><i class="fas fa-download"></i
           ></a>
-          <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
-            ><i class="fas fa-trash-alt"></i
-          ></a>
+          <button
+            onclick="deleteAadhaar('{{doc['citizen_id']}}', '{{doc['name']}}')"
+            class="btn btn-sm btn-outline-danger"
+            title="Delete"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button>
           {% endif %}
         </td>
         <td class="text-center">
@@ -59,10 +83,13 @@
             class="btn btn-sm btn-outline-success"
             ><i class="fas fa-download"></i
           ></a>
-          <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
-            ><i class="fas fa-trash-alt"></i
-          ></a>
+          <button
+            onclick="deletePan('{{doc['citizen_id']}}', '{{doc['name']}}')"
+            class="btn btn-sm btn-outline-danger"
+            title="Delete"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button>
           {% endif %}
         </td>
         <td class="text-center">
@@ -77,10 +104,13 @@
             class="btn btn-sm btn-outline-success"
             ><i class="fas fa-download"></i
           ></a>
-          <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
-            ><i class="fas fa-trash-alt"></i
-          ></a>
+          <button
+            onclick="deleteVoter('{{doc['citizen_id']}}', '{{doc['name']}}')"
+            class="btn btn-sm btn-outline-danger"
+            title="Delete"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button>
           {% endif %}
         </td>
         <td class="text-center">
@@ -92,10 +122,13 @@
           <a href="#" class="btn btn-sm btn-outline-success" title="Download"
             ><i class="fas fa-download"></i
           ></a>
-          <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
-            ><i class="fas fa-trash-alt"></i
-          ></a>
+          <button
+            onclick="deleteDriving('{{doc['citizen_id']}}', '{{doc['name']}}')"
+            class="btn btn-sm btn-outline-danger"
+            title="Delete"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button>
           {% endif %}
         </td>
       </tr>
