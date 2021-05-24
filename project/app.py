@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from helper import *
 
 
@@ -54,6 +54,26 @@ def addDoc():
 def manageDoc():
     doc_list = getDocDetails()
     return render_template("admin-manage-doc.html", doc_list=doc_list)
+
+@app.route('/downloads/aadhaar_id/<citizen_id>',methods=['POST','GET'])
+def downloadAadhaar(citizen_id):
+    return adminDownloadAadhaar(citizen_id)
+    return redirect(url_for('manageDoc'))
+
+@app.route('/downloads/pan_id/<citizen_id>',methods=['POST','GET'])
+def downloadPan(citizen_id):
+    return adminDownloadPan(citizen_id)
+    return redirect(url_for('manageDoc'))
+
+@app.route('/downloads/voter_id/<citizen_id>',methods=['POST','GET'])
+def downloadVoter(citizen_id):
+    return adminDownloadVoter(citizen_id)
+    return redirect(url_for('manageDoc'))
+
+@app.route('/downloads/driving_id/<citizen_id>',methods=['POST','GET'])
+def downloadDriving(citizen_id):
+    return adminDownloadDriving(citizen_id)
+    return redirect(url_for('manageDoc'))
 
 @app.route('/admin/view-feedbacks')
 def viewFeedback():

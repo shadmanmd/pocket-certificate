@@ -31,7 +31,7 @@
         <td>{{ doc["name"] }}</td>
         <td>
           {% if doc["aadhaar_id"]==None %} Not Available {% else %}
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="/downloads/aadhaar_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
             ><i class="fas fa-download"></i
           ></a>
           <a href="#" class="btn btn-sm btn-outline-dark"
@@ -45,7 +45,7 @@
         </td>
         <td>
           {% if doc["pan_id"]==None %} Not Available {% else %}
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="/downloads/pan_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
             ><i class="fas fa-download"></i
           ></a>
           <a href="#" class="btn btn-sm btn-outline-dark"
@@ -59,7 +59,7 @@
         </td>
         <td>
           {% if doc["voter_id"]==None %} Not Available {% else %}
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="/downloads/voter_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
             ><i class="fas fa-download"></i
           ></a>
           <a href="#" class="btn btn-sm btn-outline-dark"
@@ -73,14 +73,14 @@
         </td>
         <td>
           {% if doc["driving_id"]==None %} Not Available {% else %}
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="/downloads/driving_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="/edit/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="/delete/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
