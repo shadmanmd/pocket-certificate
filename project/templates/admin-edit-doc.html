@@ -1,0 +1,121 @@
+{% extends "layout.html" %} {% block title %}Admin | Edit Document{% endblock %}
+{% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  {% if msg %} {% if msg[0]=='D' %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %} {% endif %}
+  <h1>Edit Document</h1>
+  <hr />
+  <form
+    class="pt-3 px-5"
+    action="http://localhost:5000/admin/add-doc"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="select-doc"
+          >Select the type of document <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <select
+          name="doc-type"
+          class="form-select"
+          id="select-doc"
+          required
+          disabled
+        >
+          <option value="aadhaar">Aadhaar Card</option>
+          <option value="pan">PAN Card</option>
+          <option value="voter">Voter ID Card</option>
+          <option value="driving">Driving Licence</option>
+        </select>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="citizen-id"
+          >Citizen ID of the citizen for whom the document is added
+          <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <select
+          name="citizen-id"
+          class="form-select"
+          id="citizen-id"
+          required
+          disabled
+        >
+          {% for citizen in citizen_id_list %}
+          <option value="{{ citizen['citizen_id'] }}">
+            {{ citizen['citizen_id'] }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="key"
+          >Set a private key for the document
+          <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <input
+          type="text"
+          name="key"
+          id="key"
+          class="form-control"
+          required
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <label for="doc"
+          >Upload document <span style="color: red">*</span></label
+        >
+      </div>
+      <div class="col-6">
+        <input type="file" name="doc" id="doc" class="form-control" required />
+      </div>
+    </div>
+    <div class="text-center p-3">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

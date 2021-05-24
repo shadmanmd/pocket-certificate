@@ -30,57 +30,85 @@
         <td>{{ doc["citizen_id"] }}</td>
         <td>{{ doc["name"] }}</td>
         <td>
-          {% if doc["aadhaar_id"]==None %} Not Available {% else %}
-          <a href="/downloads/aadhaar_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
+          {% if doc["aadhaar_id"]==None %}
+          <a href="#" class="btn btn-sm btn-warning" title="Upload"
+            ><i class="fas fa-upload"></i
+          ></a>
+          {% else %}
+          <a
+            title="Download"
+            href="/downloads/aadhaar_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-success"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a
+            href="/admin/aadhaar_id/edt/{{ doc['citizen_id'] }}"
+            class="btn btn-sm btn-info"
+            title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
         </td>
         <td>
-          {% if doc["pan_id"]==None %} Not Available {% else %}
-          <a href="/downloads/pan_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
+          {% if doc["pan_id"]==None %}
+          <a href="#" class="btn btn-sm btn-warning" title="Upload"
+            ><i class="fas fa-upload"></i
+          ></a>
+          {% else %}
+          <a
+            title="Download"
+            href="/downloads/pan_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-success"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-info" title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
         </td>
         <td>
-          {% if doc["voter_id"]==None %} Not Available {% else %}
-          <a href="/downloads/voter_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
+          {% if doc["voter_id"]==None %}
+          <a href="#" class="btn btn-sm btn-warning" title="Upload"
+            ><i class="fas fa-upload"></i
+          ></a>
+          {% else %}
+          <a
+            title="Download"
+            href="/downloads/voter_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-success"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-info" title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}
         </td>
-        <td>
-          {% if doc["driving_id"]==None %} Not Available {% else %}
-          <a href="/downloads/driving_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
+        <td class="text-center">
+          {% if doc["driving_id"]==None %}
+          <a href="#" class="btn btn-sm btn-warning" title="Upload"
+            ><i class="fas fa-upload"></i
+          ></a>
+          {% else %}
+          <a href="#" class="btn btn-sm btn-success" title="Download"
             ><i class="fas fa-download"></i
           ></a>
-          <a href="/edit/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-info" title="Edit"
             ><i class="fas fa-pencil-alt"></i
           ></a>
           <!-- onclick="confirmDelete(this)" -->
-          <a href="/delete/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-dark"
+          <a href="#" class="btn btn-sm btn-danger" title="Delete"
             ><i class="fas fa-trash-alt"></i
           ></a>
           {% endif %}

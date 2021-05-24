@@ -79,6 +79,11 @@ def downloadDriving(citizen_id):
 def viewFeedback():
     return render_template("admin-view-feedback.html")
 
+@app.route('/admin/aadhaar_id/edt/<citizen_id>')
+def editAadhaar(citizen_id=0):
+    print(citizen_id)
+    return render_template("admin-edit-doc.html")
+
 # ------------------------------- CITIZEN ------------------------------------
 
 @app.route('/citizen/login')
