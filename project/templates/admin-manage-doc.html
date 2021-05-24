@@ -35,7 +35,7 @@
   {% endif %} {% endif %}
   <h1 class="pb-2">Manage Documents</h1>
   <table class="table table-hover table-bordered border-info">
-    <thead class="table-info">
+    <thead class="table-primary">
       <tr>
         <td><strong>Citizen ID</strong></td>
         <td><strong>Citizen Name</strong></td>
@@ -52,7 +52,10 @@
         <td>{{ doc["name"] }}</td>
         <td class="text-center">
           {% if doc["aadhaar_id"]==None %}
-          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+          <a
+            href="/edit/aadhaar_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-outline-dark"
+            title="Upload"
             ><i class="fas fa-upload"></i> Upload</a
           >
           {% else %}
@@ -73,7 +76,10 @@
         </td>
         <td class="text-center">
           {% if doc["pan_id"]==None %}
-          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+          <a
+            href="/edit/pan_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-outline-dark"
+            title="Upload"
             ><i class="fas fa-upload"></i> Upload</a
           >
           {% else %}
@@ -94,7 +100,10 @@
         </td>
         <td class="text-center">
           {% if doc["voter_id"]==None %}
-          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+          <a
+            href="/edit/voter_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-outline-dark"
+            title="Upload"
             ><i class="fas fa-upload"></i> Upload</a
           >
           {% else %}
@@ -115,11 +124,17 @@
         </td>
         <td class="text-center">
           {% if doc["driving_id"]==None %}
-          <a href="#" class="btn btn-sm btn-outline-dark" title="Upload"
+          <a
+            href="/edit/driving_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-outline-dark"
+            title="Upload"
             ><i class="fas fa-upload"></i> Upload</a
           >
           {% else %}
-          <a href="/downloads/driving_id/{{doc['citizen_id']}}" class="btn btn-sm btn-outline-success" title="Download"
+          <a
+            href="/downloads/driving_id/{{doc['citizen_id']}}"
+            class="btn btn-sm btn-outline-success"
+            title="Download"
             ><i class="fas fa-download"></i
           ></a>
           <button

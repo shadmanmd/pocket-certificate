@@ -95,6 +95,42 @@ def deleteDriving(citizen_id):
     msg = adminDeleteDriving(citizen_id)
     return redirect(url_for('manageDoc'))
 
+@app.route('/edit/aadhaar_id/<citizen_id>', methods=['GET', 'POST'])
+def editAadhaar(citizen_id):
+    msg=""
+    if request.method=='POST':
+        msg = adminAddDoc(request.form,request.files)
+        print(msg)
+        return redirect(url_for('manageDoc'))
+    return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='aadhaar')
+
+@app.route('/edit/pan_id/<citizen_id>', methods=['GET', 'POST'])
+def editPan(citizen_id):
+    msg=""
+    if request.method=='POST':
+        msg = adminAddDoc(request.form,request.files)
+        print(msg)
+        return redirect(url_for('manageDoc'))
+    return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='pan')
+
+@app.route('/edit/voter_id/<citizen_id>', methods=['GET', 'POST'])
+def editVoter(citizen_id):
+    msg=""
+    if request.method=='POST':
+        msg = adminAddDoc(request.form,request.files)
+        print(msg)
+        return redirect(url_for('manageDoc'))
+    return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='voter')
+
+@app.route('/edit/driving_id/<citizen_id>', methods=['GET', 'POST'])
+def editDriving(citizen_id):
+    msg=""
+    if request.method=='POST':
+        msg = adminAddDoc(request.form,request.files)
+        print(msg)
+        return redirect(url_for('manageDoc'))
+    return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='driving')
+
 @app.route('/admin/view-feedbacks')
 def viewFeedback():
     return render_template("admin-view-feedback.html")

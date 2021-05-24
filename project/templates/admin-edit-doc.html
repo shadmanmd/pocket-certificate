@@ -1,7 +1,7 @@
-{% extends "layout.html" %} {% block title %}Admin | Edit Document{% endblock %}
+{% extends "layout.html" %} {% block title %}Admin | Add Document{% endblock %}
 {% block content %}
 <nav class="navbar navbar-light bg-info p-2">
-  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <a href="/admin/dashboard" class="navbar-brand">Welcome Admin</a>
   <div class="float-end">
     <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
       ><i class="fas fa-home"></i> DASHBOARD</a
@@ -33,33 +33,65 @@
     ></button>
   </div>
   {% endif %} {% endif %}
-  <h1>Edit Document</h1>
+  <h1>Add Document</h1>
   <hr />
   <form
     class="pt-3 px-5"
-    action="http://localhost:5000/admin/add-doc"
+    action="http://localhost:5000/edit/aadhaar_id/{{citizen_id}}"
     method="POST"
     enctype="multipart/form-data"
   >
     <div class="row p-2">
       <div class="col-6">
         <label for="select-doc"
-          >Select the type of document <span style="color: red">*</span></label
+          >Document Type <span style="color: red">*</span></label
         >
       </div>
       <div class="col-6">
-        <select
+        <input
+          style="display: none"
+          type="text"
           name="doc-type"
-          class="form-select"
+          value="{{doc_type}}"
+          readonly
+        />
+        {% if doc_type=='aadhaar' %}
+        <input
+          type="text"
+          name="temp"
           id="select-doc"
-          required
-          disabled
-        >
-          <option value="aadhaar">Aadhaar Card</option>
-          <option value="pan">PAN Card</option>
-          <option value="voter">Voter ID Card</option>
-          <option value="driving">Driving Licence</option>
-        </select>
+          class="form-control"
+          value="Aadhaar Card"
+          readonly
+        />
+        {% endif %} {% if doc_type=='pan' %}
+        <input
+          type="text"
+          name="temp"
+          id="select-doc"
+          class="form-control"
+          value="PAN Card"
+          readonly
+        />
+        {% endif %} {% if doc_type=='voter' %}
+        <input
+          type="text"
+          name="temp"
+          id="select-doc"
+          class="form-control"
+          value="Voter ID Card"
+          readonly
+        />
+        {% endif %} {% if doc_type=='driving' %}
+        <input
+          type="text"
+          name="temp"
+          id="select-doc"
+          class="form-control"
+          value="Driving Licence"
+          readonly
+        />
+        {% endif %}
       </div>
     </div>
     <div class="row p-2">
@@ -70,19 +102,14 @@
         >
       </div>
       <div class="col-6">
-        <select
+        <input
+          type="text"
           name="citizen-id"
-          class="form-select"
           id="citizen-id"
-          required
-          disabled
-        >
-          {% for citizen in citizen_id_list %}
-          <option value="{{ citizen['citizen_id'] }}">
-            {{ citizen['citizen_id'] }}
-          </option>
-          {% endfor %}
-        </select>
+          class="form-control"
+          value="{{citizen_id}}"
+          readonly
+        />
       </div>
     </div>
     <div class="row p-2">
@@ -93,14 +120,7 @@
         >
       </div>
       <div class="col-6">
-        <input
-          type="text"
-          name="key"
-          id="key"
-          class="form-control"
-          required
-          readonly
-        />
+        <input type="text" name="key" id="key" class="form-control" required />
       </div>
     </div>
     <div class="row p-2">

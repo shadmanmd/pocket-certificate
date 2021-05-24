@@ -7,6 +7,7 @@ function deleteAadhaar(citizen_id, citizen_name) {
     $.ajax({
       url: "http://localhost:5000/delete/aadhaar_id/" + citizen_id,
       success: function () {
+        alert(citizen_name + "'s Aadhaar deleted.");
         window.location.replace("http://localhost:5000/admin/manage-doc");
       },
     });
@@ -23,6 +24,7 @@ function deletePan(citizen_id, citizen_name) {
     $.ajax({
       url: "http://localhost:5000/delete/pan_id/" + citizen_id,
       success: function () {
+        alert(citizen_name + "'s PAN card deleted.");
         window.location.replace("http://localhost:5000/admin/manage-doc");
       },
     });
@@ -39,6 +41,7 @@ function deleteVoter(citizen_id, citizen_name) {
     $.ajax({
       url: "http://localhost:5000/delete/voter_id/" + citizen_id,
       success: function () {
+        alert(citizen_name + "'s Voter ID card deleted.");
         window.location.replace("http://localhost:5000/admin/manage-doc");
       },
     });
@@ -55,6 +58,7 @@ function deleteDriving(citizen_id, citizen_name) {
     $.ajax({
       url: "http://localhost:5000/delete/driving_id/" + citizen_id,
       success: function () {
+        alert(citizen_name + "'s Driving licence deleted.");
         window.location.replace("http://localhost:5000/admin/manage-doc");
       },
     });
