@@ -143,7 +143,10 @@ def citizenLogin():
 
 @app.route('/citizen/dashboard')
 def citizenDashboard():
-    return render_template("citizen-dashboard.html")
+    citizen_data_list = getCitizenData()
+    if(citizen_data_list[7]):
+        redirect(url_for('image_route',citizen_id='CTZ1007'))
+    return render_template("citizen-dashboard.html",citizen_data=citizen_data_list)
 
 @app.route('/citizen/doc')
 def viewDoc():
@@ -152,6 +155,14 @@ def viewDoc():
 @app.route('/citizen/feedback')
 def giveFeedback():
     return render_template("citizen-give-feedback.html")
+
+
+@app.route('/image/<citizen_id>')
+def image_route(citizen_id):
+    img = getCitizenImage(citizen_id)
+    if(img[0]):
+        return send_file(BytesIO(img[0]),mimetype='image/jpeg')
+    
 
 if __name__=='__main__':
 	app.run(debug=True)
