@@ -35,11 +35,17 @@
     <img
       style="height: 200px; width: 200px"
       class="img-thumbnail float-end"
-      {% if(citizen_data[7]) %}
-        src="{{ url_for('image_route', citizen_id='CTZ1007') }}"
-      {% else %}
-        src="{{ url_for('static', filename='user.png') }}"
-      {% endif %}
+      {%
+      if(citizen_data[7])
+      %}
+      src="{{ url_for('image_route', citizen_id='CTZ1008') }}"
+      {%
+      else
+      %}
+      src="{{ url_for('static', filename='user.png') }}"
+      {%
+      endif
+      %}
       alt="user-img"
     />
     <p>

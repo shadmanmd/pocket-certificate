@@ -11,7 +11,7 @@ def getCitizenData():
         curr = conn.cursor()
         print("Cursor created")
 
-        query = "SELECT citizen_id,name,email,contact,gender,dob,address,image FROM citizen WHERE citizen_id = 'CTZ1007' "
+        query = "SELECT citizen_id,name,email,contact,gender,dob,address,image FROM citizen WHERE citizen_id = 'CTZ1008' "
         curr.execute(query)
         row = curr.fetchone()
         return row

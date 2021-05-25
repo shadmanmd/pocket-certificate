@@ -65,3 +65,20 @@ function deleteDriving(citizen_id, citizen_name) {
   } else {
   }
 }
+
+function deleteCitizen(citizen_id, citizen_name) {
+  console.log("Hi");
+  var res = confirm(
+    "Are you sure you want to delete " + citizen_name + " from the database?"
+  );
+  if (res == true) {
+    $.ajax({
+      url: "http://localhost:5000/delete/citizen/" + citizen_id,
+      success: function () {
+        alert("All data of " + citizen_name + " deleted from the database.");
+        window.location.replace("http://localhost:5000/admin/manage-citizen");
+      },
+    });
+  } else {
+  }
+}

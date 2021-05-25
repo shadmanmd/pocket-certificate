@@ -29,13 +29,15 @@
         <td>{{ citizen["name"] }}</td>
         <td>{{ citizen["email"] }}</td>
         <td>
-          <a href="#" class="btn btn-sm btn-outline-primary" title="Edit"
-            ><i class="fas fa-pencil-alt"></i
-          ></a>
-          <!-- onclick="confirmDelete(this)" -->
-          <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"
-            ><i class="fas fa-trash-alt"></i
-          ></a>
+          <a href="#" class="btn btn-sm btn-outline-primary"
+            ><i class="fas fa-pencil-alt"></i> Edit</a
+          >
+          <button
+            onclick="deleteCitizen('{{citizen['citizen_id']}}', '{{citizen['name']}}')"
+            class="btn btn-sm btn-outline-danger"
+          >
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
         </td>
       </tr>
       {% endfor %}

@@ -95,6 +95,11 @@ def deleteDriving(citizen_id):
     msg = adminDeleteDriving(citizen_id)
     return redirect(url_for('manageDoc'))
 
+@app.route('/delete/citizen/<citizen_id>')
+def deleteCitizen(citizen_id):
+    msg = adminDeleteCitizen(citizen_id)
+    return redirect(url_for('manageCitizen'))
+
 @app.route('/edit/aadhaar_id/<citizen_id>', methods=['GET', 'POST'])
 def editAadhaar(citizen_id):
     msg=""
@@ -145,7 +150,7 @@ def citizenLogin():
 def citizenDashboard():
     citizen_data_list = getCitizenData()
     if(citizen_data_list[7]):
-        redirect(url_for('image_route',citizen_id='CTZ1007'))
+        redirect(url_for('image_route',citizen_id='CTZ1008'))
     return render_template("citizen-dashboard.html",citizen_data=citizen_data_list)
 
 @app.route('/citizen/doc')
