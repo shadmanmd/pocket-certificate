@@ -1,7 +1,7 @@
 {% extends "layout.html" %} {% block title %}Admin | Manage Citizens{% endblock
 %} {% block content %}
 <nav class="navbar navbar-light bg-info p-2">
-  <a href="#" class="navbar-brand">Welcome Admin</a>
+  <a href="/admin/dashboard" class="navbar-brand">Welcome Admin</a>
   <div class="float-end">
     <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
       ><i class="fas fa-home"></i> DASHBOARD</a
@@ -12,6 +12,27 @@
   </div>
 </nav>
 <div class="container p-5">
+  {% if msg %} {% if msg[0]=='C' %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %} {% endif %}
   <h1 class="pb-2">Manage Citizens</h1>
   <table class="table table-hover table-bordered border-info">
     <thead class="table-info">
@@ -29,7 +50,9 @@
         <td>{{ citizen["name"] }}</td>
         <td>{{ citizen["email"] }}</td>
         <td>
-          <a href="#" class="btn btn-sm btn-outline-primary"
+          <a
+            href="/admin/edit-citizen/{{citizen['citizen_id']}}"
+            class="btn btn-sm btn-outline-primary"
             ><i class="fas fa-pencil-alt"></i> Edit</a
           >
           <button

@@ -11,5 +11,6 @@ from Python.admin_deletePan import *
 from Python.admin_deleteVoter import *
 from Python.admin_deleteDriving import *
 from Python.admin_deleteCitizen import *
+from Python.admin_editCitizen import *
 
 from Python.citizen_dashboard import *

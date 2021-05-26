@@ -36,8 +36,21 @@ def addCitizen():
         citizenID = 'CTZ' + str(newCitizenID)
     return render_template("admin-add-citizen.html", citizenID=citizenID, msg=msg)
 
+@app.route('/admin/edit-citizen/<citizen_id>', methods = ['GET', 'POST'])
+def editCitizen(citizen_id):
+    if request.method=='POST':
+        msg = adminEditCitizen(citizen_id, request.form)
+        return redirect(url_for('manageCitizen', msg=msg))
+    else:
+        citizen = adminGetCitizen(citizen_id)
+        print(citizen)
+        if citizen[6]:
+            redirect(url_for('image_route',citizen_id=citizen_id))
+        return render_template("admin-edit-citizen.html", citizen=citizen, citizen_id=citizen_id)
+
 @app.route('/admin/manage-citizen')
-def manageCitizen():
+def manageCitizen(msg=''):
+    print(msg)
     citizenDetail_list = getCitizenDetails()
     return render_template("admin-manage-citizen.html",citizenDetail_list=citizenDetail_list)
 

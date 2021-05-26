@@ -1,0 +1,185 @@
+{% extends "layout.html" %} {% block title %}Admin | Edit Citizen{% endblock %}
+{% block content %}
+<nav class="navbar navbar-light bg-info p-2">
+  <a href="/admin/dashboard" class="navbar-brand">Welcome Admin</a>
+  <div class="float-end">
+    <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
+      ><i class="fas fa-home"></i> DASHBOARD</a
+    >
+    <a href="#" class="btn btn-sm btn-danger" role="button"
+      ><i class="fas fa-power-off"></i> LOGOUT</a
+    >
+  </div>
+</nav>
+<div class="container p-5">
+  <h1>Edit Citizen</h1>
+  <hr />
+  <form
+    action="http://localhost:5000/admin/edit-citizen/{{citizen_id}}"
+    method="POST"
+    class="pt-3 px-5"
+    enctype="multipart/form-data"
+  >
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="citizen-id" class="form-label">Citizen ID</label>
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="citizen-id"
+              name="citizen-id"
+              readonly
+              value="{{ citizen_id }}"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="email-id" class="form-label"
+              >Email ID <span style="color: red">*</span>
+            </label>
+          </div>
+          <div class="col-9">
+            <input
+              type="email"
+              class="form-control"
+              id="email-id"
+              name="email-id"
+              required
+              readonly
+              value="{{citizen['email']}}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="name" class="form-label"
+              >Name <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+              value="{{citizen['name']}}"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="contact-no" class="form-label"
+              >Contact No. <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              type="tel"
+              class="form-control"
+              id="contact-no"
+              name="contact-no"
+              required
+              value="{{citizen['contact']}}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="dob" class="form-label"
+              >Date of Birth<span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <input
+              type="date"
+              class="form-control"
+              id="dob"
+              name="dob"
+              required
+              value="{{citizen['dob']}}"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="gender" class="form-label"
+              >Gender <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <select name="gender" class="form-select" id="gender" required>
+              {% if citizen['gender']=="male" %}
+              <option selected value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="prefer-not-to-say"></option>
+              {% elif citizen['gender']=="female" %}
+              <option value="male">Male</option>
+              <option selected value="female">Female</option>
+              <option value="prefer-not-to-say"></option>
+              {% elif citizen['gender']=="prefer-not-to-say" %}
+              <option value="male">Male</option>
+              <option selected value="female">Female</option>
+              <option selected value="prefer-not-to-say">
+                Prefer not to say
+              </option>
+              {% endif %}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="address" class="form-label"
+              >Address <span style="color: red">*</span></label
+            >
+          </div>
+          <div class="col-9">
+            <textarea class="form-control" id="address" name="address" required>
+{{citizen['address']}}</textarea
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <label for="image" class="form-label">Profile Photo</label>
+          </div>
+          <div class="col-9">
+            <img style="height: 200px; width: 200px" class="img-thumbnail
+            float-beg" {% if(citizen['image']) %} src="{{ url_for('image_route',
+            citizen_id='CTZ1008') }}" {% else %} src="{{ url_for('static',
+            filename='user.png') }}" {% endif %} alt="user-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-2">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
