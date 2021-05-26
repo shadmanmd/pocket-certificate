@@ -334,7 +334,7 @@ def giveFeedback():
 @app.route('/image/<citizen_id>')
 def image_route(citizen_id):
     img = getCitizenImage(citizen_id)
-    if(type(img)!=None and img[0]):
+    if(img[0]):
         return send_file(BytesIO(img[0]),mimetype='image/jpeg')
     
 
