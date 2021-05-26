@@ -6,7 +6,30 @@
 />
 {% endblock %} {% block content %}
 <div class="full-page d-flex align-items-center text-center">
-  <form class="text-center border rounded border-5 p-5 shadow">
+  {% if value=="Admin" %}
+  <form
+    action="http://localhost:5000/admin/login"
+    method="POST"
+    class="text-center border rounded border-5 p-5 shadow"
+  >
+  {% else %}
+    <form
+    action="http://localhost:5000/admin/login"
+    method="POST"
+    class="text-center border rounded border-5 p-5 shadow"
+  >
+  {% endif %}
+  {% if msg %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ msg }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  {% endif %}
     <h1 class="mb-3">Login as {{value}}</h1>
     <div class="form-floating mb-3">
       <input
@@ -14,6 +37,7 @@
         class="form-control"
         id="floatingInput"
         placeholder="name@example.com"
+        name="username"
       />
       <label for="floatingInput">User ID</label>
     </div>
@@ -23,8 +47,12 @@
         class="form-control"
         id="floatingPassword"
         placeholder="Password"
+        name="password"
       />
       <label for="floatingPassword">Password</label>
+    </div>
+    <div class="text-center p-2">
+      <button type="submit" class="btn btn-primary">LOGIN</button>
     </div>
   </form>
 </div>
