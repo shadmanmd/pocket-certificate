@@ -24,7 +24,9 @@ def adminLogin():
             return redirect(url_for('adminLogin'))
     else:
         if 'message' in session:
-            return render_template("login.html", value="Admin", msg = session['message'])
+            m = session['message']
+            session.pop('message',None)
+            return render_template("login.html", value="Admin", msg = m)
         else:
             return render_template("login.html", value="Admin")
 
@@ -332,7 +334,7 @@ def giveFeedback():
 @app.route('/image/<citizen_id>')
 def image_route(citizen_id):
     img = getCitizenImage(citizen_id)
-    if(img[0]):
+    if(type(img)!=None and img[0]):
         return send_file(BytesIO(img[0]),mimetype='image/jpeg')
     
 
