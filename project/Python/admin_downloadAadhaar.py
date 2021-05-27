@@ -9,13 +9,15 @@ def adminDownloadAadhaar(citizen_id):
         print("Conection made with the database")
 
         curr = conn.cursor()
-        print("Cursor created")
+        print("Cursor created for Aadhaar")
 
         query = "SELECT aadhaar_id FROM citizen WHERE citizen_id = ?"
         curr.execute(query,(citizen_id,))
+        print("Query executed")
         row = curr.fetchone()
         data = row[0]
         fileName = str(citizen_id) + "_Aadhaar.jpg"
+        print(fileName)
         return send_file(BytesIO(data),mimetype="image/jpeg",attachment_filename=fileName,as_attachment=True)
         
     except Exception as e:

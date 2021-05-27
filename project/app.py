@@ -400,7 +400,7 @@ def viewDoc():
         docs = viewDocuments(citizen_id)
         if docs == None:
             return "<h1>Please login as citizen to view this.</h1>"
-        return render_template("citizen-view-doc.html", docs=docs)
+        return render_template("citizen-view-doc.html", docs=docs, citizen_id=citizen_id)
     else:
         session['message'] = 'Please login'
         return redirect(url_for('citizenLogin'))

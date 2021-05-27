@@ -8,7 +8,7 @@ def viewDocuments(citizen_id):
         curr = conn.cursor()
         print("Cursor created")
 
-        query = "SELECT name,aadhaar_id,pan_id,voter_id,driving_id FROM citizen WHERE citizen_id = ? "
+        query = "SELECT citizen_id,name,aadhaar_key,pan_key,voter_key,driving_key FROM citizen WHERE citizen_id = ? "
         curr.execute(query, (citizen_id,))
         row = curr.fetchone()
         return row
