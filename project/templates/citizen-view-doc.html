@@ -1,12 +1,12 @@
 {% extends "layout.html" %} {% block title %}Citizen | View Documents{% endblock
 %} {% block content %}
 <nav class="navbar navbar-light bg-info p-2">
-  <a href="#" class="navbar-brand">Welcome {{username}}</a>
+  <a href="#" class="navbar-brand">Welcome {{docs[0]}}</a>
   <div class="float-end">
     <a href="/citizen/dashboard" class="btn btn-sm btn-success" role="button"
       ><i class="fas fa-home"></i> DASHBOARD</a
     >
-    <a href="#" class="btn btn-sm btn-danger" role="button"
+    <a href="/logout" class="btn btn-sm btn-danger" role="button"
       ><i class="fas fa-power-off"></i> LOGOUT</a
     >
   </div>
@@ -21,8 +21,22 @@
       </tr>
     </thead>
     <tbody>
-      <td>Aadhaar</td>
-      <td><a href="#">Filename</a></td>
+      <tr>
+        <td>Aadhaar Card</td>
+        <td><a href="#">Filename</a></td>
+      </tr>
+      <tr>
+        <td>PAN Card</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Voter ID Card</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Driving Licence</td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
 </div>

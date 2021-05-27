@@ -10,7 +10,19 @@ app.secret_key = 'POCKET-CERTIFICATE-USING-DOUBLE-ENCRYPTION'
 def index():
     return render_template("index.html")
 
+
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    session.pop('message', None)
+    return redirect(url_for('index'))
+
+
+
 # ------------------------------- ADMIN ------------------------------------
+
+
 
 @app.route('/admin/login', methods=['GET', 'POST'])
 def adminLogin():
@@ -32,19 +44,13 @@ def adminLogin():
 
 
 
-@app.route('/logout')
-def logout():
-    session.pop('username', None)
-    session.pop('message', None)
-    return redirect(url_for('index'))
-
-
-
 @app.route('/admin/dashboard')
 def adminDashboard():
     if 'username' in session:
         if session['username'] == 'admin':
             return render_template("admin-dashboard.html")
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -70,6 +76,8 @@ def addCitizen():
 
                 citizenID = 'CTZ' + str(newCitizenID)
             return render_template("admin-add-citizen.html", citizenID=citizenID, msg=msg)
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -89,6 +97,8 @@ def editCitizen(citizen_id):
                 if citizen[6]:
                     redirect(url_for('image_route',citizen_id=citizen_id))
                 return render_template("admin-edit-citizen.html", citizen=citizen, citizen_id=citizen_id)
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -102,6 +112,8 @@ def manageCitizen():
         if session['username'] == 'admin':
             citizenDetail_list = getCitizenDetails()
             return render_template("admin-manage-citizen.html",citizenDetail_list=citizenDetail_list)
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -118,6 +130,8 @@ def addDoc():
                 msg = adminAddDoc(request.form,request.files)
                 print(msg)
             return render_template("admin-add-doc.html",citizen_id_list=citizen_id_list,msg=msg)
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -130,6 +144,8 @@ def manageDoc():
         if session['username'] == 'admin':
             doc_list = getDocDetails()
             return render_template("admin-manage-doc.html", doc_list=doc_list)
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -186,6 +202,8 @@ def deleteAadhaar(citizen_id):
         if session['username'] == 'admin':
             msg = adminDeleteAadhaar(citizen_id)
             return redirect(url_for('manageDoc'))
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -198,6 +216,8 @@ def deletePan(citizen_id):
         if session['username'] == 'admin':
             msg = adminDeletePan(citizen_id)
             return redirect(url_for('manageDoc'))
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -210,6 +230,8 @@ def deleteVoter(citizen_id):
         if session['username'] == 'admin':
             msg = adminDeleteVoter(citizen_id)
             return redirect(url_for('manageDoc'))
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -222,6 +244,8 @@ def deleteDriving(citizen_id):
         if session['username'] == 'admin':
             msg = adminDeleteDriving(citizen_id)
             return redirect(url_for('manageDoc'))
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -234,6 +258,8 @@ def deleteCitizen(citizen_id):
         if session['username'] == 'admin':
             msg = adminDeleteCitizen(citizen_id)
             return redirect(url_for('manageCitizen'))
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -249,6 +275,8 @@ def editAadhaar(citizen_id):
                 print(msg)
                 return redirect(url_for('manageDoc'))
             return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='aadhaar')
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -264,6 +292,8 @@ def editPan(citizen_id):
                 print(msg)
                 return redirect(url_for('manageDoc'))
             return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='pan')
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -279,6 +309,8 @@ def editVoter(citizen_id):
                 print(msg)
                 return redirect(url_for('manageDoc'))
             return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='voter')
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -294,6 +326,8 @@ def editDriving(citizen_id):
                 print(msg)
                 return redirect(url_for('manageDoc'))
             return render_template("admin-edit-doc.html", citizen_id=citizen_id, doc_type='driving')
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
@@ -305,30 +339,80 @@ def viewFeedback():
     if 'username' in session:
         if session['username'] == 'admin':
             return render_template("admin-view-feedback.html")
+        else:
+            return "<h1>Please login as admin to view this.</h1>"
     else:
         session['message'] = 'Please login'
         return redirect(url_for('adminLogin'))
 
+
+
 # ------------------------------- CITIZEN ------------------------------------
 
-@app.route('/citizen/login')
+
+
+@app.route('/citizen/login', methods = ['GET', 'POST'])
 def citizenLogin():
-    return render_template("login.html", value="Citizen")
+    if request.method == 'POST':
+        inputCitizen = request.form['username']
+        inputPassword = request.form['password']
+        data = citizenExists(inputCitizen)
+        print(data)
+        if data[0] == 'E':
+            session['message'] = 'Invalid user ID or password'
+            return redirect(url_for('citizenLogin'))
+        else:
+            if checkPassword(data[8], data[7], inputPassword) == True:
+                session['username'] = request.form['username']
+                return redirect(url_for('citizenDashboard'))
+            else:
+                session['message'] = 'Invalid user ID or password'
+                return redirect(url_for('citizenLogin'))
+    else:
+        if 'message' in session:
+            msg = session['message']
+            session.pop('message',None)
+            return render_template("login.html", value="Citizen", msg = msg)
+        else:
+            return render_template("login.html", value="Citizen")
+
+
 
 @app.route('/citizen/dashboard')
 def citizenDashboard():
-    citizen_data_list = getCitizenData()
-    if(citizen_data_list[7]):
-        redirect(url_for('image_route',citizen_id='CTZ1008'))
-    return render_template("citizen-dashboard.html",citizen_data=citizen_data_list)
+    if 'username' in session:
+        citizen_id = session['username']
+        citizen_data_list = getCitizenData(citizen_id)
+        if citizen_data_list == None:
+            return "<h1>Please login as citizen to view this.</h1>"
+        if(citizen_data_list[7]):
+            redirect(url_for('image_route',citizen_id='CTZ1008'))
+        return render_template("citizen-dashboard.html",citizen_data=citizen_data_list)
+    else:
+        session['message'] = 'Please login'
+        return redirect(url_for('citizenLogin'))
+
 
 @app.route('/citizen/doc')
 def viewDoc():
-    return render_template("citizen-view-doc.html")
+    if 'username' in session:
+        citizen_id = session['username']
+        docs = viewDocuments(citizen_id)
+        if docs == None:
+            return "<h1>Please login as citizen to view this.</h1>"
+        return render_template("citizen-view-doc.html", docs=docs)
+    else:
+        session['message'] = 'Please login'
+        return redirect(url_for('citizenLogin'))
 
 @app.route('/citizen/feedback')
 def giveFeedback():
-    return render_template("citizen-give-feedback.html")
+    if 'username' in session:
+        citizen_id = session['username']
+        return render_template("citizen-give-feedback.html")
+    else:
+        session['message'] = 'Please login'
+        return redirect(url_for('citizenLogin'))
 
 
 @app.route('/image/<citizen_id>')

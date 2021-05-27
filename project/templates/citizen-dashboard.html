@@ -1,9 +1,11 @@
 {% extends "layout.html" %} {% block title %}Citizen | Dashboard{% endblock %}
 {% block content %}
 <nav class="navbar navbar-light bg-info p-2">
-  <a href="#" class="navbar-brand">Welcome {{UserName}}</a>
+  <a href="/citizen/dashboard" class="navbar-brand"
+    >Welcome {{citizen_data[1]}}</a
+  >
   <div class="float-end">
-    <a href="#" class="btn btn-sm btn-danger" role="button"
+    <a href="/logout" class="btn btn-sm btn-danger" role="button"
       ><i class="fas fa-power-off"></i> LOGOUT</a
     >
   </div>

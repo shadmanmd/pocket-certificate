@@ -1,6 +1,11 @@
 from os import error
 import sqlite3 as sql;
+
 from werkzeug.utils import secure_filename;
+
+from string import ascii_letters, digits
+from random import choices
+from cryptography.fernet import Fernet
 
 def convertToBinaryData(fileName):
     try:
@@ -22,9 +27,17 @@ def adminAddCitizen(form,files):
         image = files["image"]
         fileName = secure_filename(image.filename)
         image_BLOB = convertToBinaryData(fileName)
-        
 
-        #print(citizen_id,email_id,name,contact_no,dob,gender,address,image_BLOB)
+        # Password generation
+        pwd = ''.join(choices(ascii_letters + digits, k = 6))
+        print(pwd)
+
+        # Password encryption
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        password = f.encrypt(pwd.encode())
+
+        #print(citizen_id,email_id,name,contact_no,dob,gender,address,image_BLOB,password,key)
 
         conn = sql.connect("database/pocket-certificate-db.db")
         print("Conection made with the database")
@@ -32,8 +45,8 @@ def adminAddCitizen(form,files):
         curr = conn.cursor()
         print("Cursor created")
 
-        query = "INSERT INTO citizen (citizen_id,name,email,contact,address,dob,gender,image) VALUES(?,?,?,?,?,?,?,?)"
-        curr.execute(query,(citizen_id,name,email_id,contact_no,address,dob,gender,image_BLOB))
+        query = "INSERT INTO citizen (citizen_id,name,email,contact,address,dob,gender,image,password,fernet_key) VALUES(?,?,?,?,?,?,?,?,?,?)"
+        curr.execute(query,(citizen_id,name,email_id,contact_no,address,dob,gender,image_BLOB,password,key))
         print("Query execution in progress")
 
         conn.commit()

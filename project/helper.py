@@ -13,4 +13,6 @@ from Python.admin_deleteDriving import *
 from Python.admin_deleteCitizen import *
 from Python.admin_editCitizen import *
 
+from Python.citizen_login import *
 from Python.citizen_dashboard import *
+from Python.citizen_viewDoc import *

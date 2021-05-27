@@ -1,12 +1,17 @@
 # 1
 
+Install Python version >3.6
+
+# 2
+
 In the command line,
 
 ```python
 pip install flask
+pip install fernet
 ```
 
-# 2
+# 3
 
 Get into the project folder
 
