@@ -40,7 +40,7 @@
       {%
       if(citizen_data[7])
       %}
-      src="{{ url_for('image_route', citizen_id='CTZ1008') }}"
+      src="{{ url_for('image_route', citizen_id=citizen_data[0]) }}"
       {%
       else
       %}

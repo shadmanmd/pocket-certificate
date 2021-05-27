@@ -358,7 +358,7 @@ def citizenLogin():
         inputPassword = request.form['password']
         data = citizenExists(inputCitizen)
         print(data)
-        if data[0] == 'E':
+        if data == None:
             session['message'] = 'Invalid user ID or password'
             return redirect(url_for('citizenLogin'))
         else:
@@ -386,7 +386,7 @@ def citizenDashboard():
         if citizen_data_list == None:
             return "<h1>Please login as citizen to view this.</h1>"
         if(citizen_data_list[7]):
-            redirect(url_for('image_route',citizen_id='CTZ1008'))
+            redirect(url_for('image_route',citizen_id=citizen_id))
         return render_template("citizen-dashboard.html",citizen_data=citizen_data_list)
     else:
         session['message'] = 'Please login'
