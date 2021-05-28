@@ -8,7 +8,7 @@ In the command line,
 
 ```python
 pip install flask
-pip install fernet
+pip install cryptography
 ```
 
 # 3

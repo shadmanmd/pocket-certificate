@@ -1,12 +1,12 @@
 {% extends "layout.html" %} {% block title %}Citizen | Give Feedback{% endblock
 %} {% block content %}
 <nav class="navbar navbar-light bg-info p-2">
-  <a href="#" class="navbar-brand">Welcome {{username}}</a>
+  <a href="/citizen/dashboard" class="navbar-brand">Welcome {{name}}</a>
   <div class="float-end">
     <a href="/citizen/dashboard" class="btn btn-sm btn-success" role="button"
       ><i class="fas fa-home"></i> DASHBOARD</a
     >
-    <a href="#" class="btn btn-sm btn-danger" role="button"
+    <a href="/logout" class="btn btn-sm btn-danger" role="button"
       ><i class="fas fa-power-off"></i> LOGOUT</a
     >
   </div>
@@ -14,7 +14,32 @@
 <div class="container p-5">
   <h1>Give a Feedback</h1>
   <hr />
-  <form class="pt-3 px-5">
+  {% if msg %} {% if msg[0]=='F' %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %} {% endif %}
+  <form
+    action="http://localhost:5000/citizen/feedback"
+    method="POST"
+    class="pt-3 px-5"
+  >
     <textarea
       name="feedback"
       class="form-control"

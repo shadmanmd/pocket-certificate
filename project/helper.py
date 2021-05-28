@@ -12,7 +12,9 @@ from Python.admin_deleteVoter import *
 from Python.admin_deleteDriving import *
 from Python.admin_deleteCitizen import *
 from Python.admin_editCitizen import *
+from Python.admin_viewFeedback import *
 
 from Python.citizen_login import *
 from Python.citizen_dashboard import *
 from Python.citizen_viewDoc import *
+from Python.citizen_giveFeedback import *

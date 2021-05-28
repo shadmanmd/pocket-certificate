@@ -338,7 +338,8 @@ def editDriving(citizen_id):
 def viewFeedback():
     if 'username' in session:
         if session['username'] == 'admin':
-            return render_template("admin-view-feedback.html")
+            feedbacks = getFeedbacks()
+            return render_template("admin-view-feedback.html", feedbacks=feedbacks)
         else:
             return "<h1>Please login as admin to view this.</h1>"
     else:
@@ -393,6 +394,7 @@ def citizenDashboard():
         return redirect(url_for('citizenLogin'))
 
 
+
 @app.route('/citizen/doc')
 def viewDoc():
     if 'username' in session:
@@ -405,11 +407,19 @@ def viewDoc():
         session['message'] = 'Please login'
         return redirect(url_for('citizenLogin'))
 
-@app.route('/citizen/feedback')
+
+
+@app.route('/citizen/feedback', methods = ['GET', 'POST'])
 def giveFeedback():
     if 'username' in session:
+        if session['username'] == 'admin':
+            return '<h1>Please login as citizen to view this.</h1>'
         citizen_id = session['username']
-        return render_template("citizen-give-feedback.html")
+        name = getCitizenName(citizen_id)
+        if request.method == 'POST':
+            msg = submitFeedback(citizen_id, name[0], request.form)
+            return render_template('citizen-give-feedback.html', name=name[0], msg=msg)
+        return render_template("citizen-give-feedback.html", name=name[0])
     else:
         session['message'] = 'Please login'
         return redirect(url_for('citizenLogin'))
