@@ -75,6 +75,7 @@
               name="name"
               required
               value="{{citizen['name']}}"
+              autocomplete="off"
             />
           </div>
         </div>
@@ -94,6 +95,7 @@
               name="contact-no"
               required
               value="{{citizen['contact']}}"
+              autocomplete="off"
             />
           </div>
         </div>
@@ -157,8 +159,14 @@
             >
           </div>
           <div class="col-9">
-            <textarea class="form-control" id="address" name="address" required>
-{{citizen['address']}}</textarea
+            <textarea
+              class="form-control"
+              id="address"
+              name="address"
+              required
+              autocomplete="off"
+            >
+{{citizen['address']}} </textarea
             >
           </div>
         </div>

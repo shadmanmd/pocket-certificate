@@ -33,7 +33,9 @@
     ></button>
   </div>
   {% endif %} {% endif %}
-  <h1 class="pb-2">Manage Documents</h1>
+  <h1>Manage Documents</h1>
+  <hr class="mb-2" />
+  {% if doc_list %}
   <table class="table table-hover table-bordered border-info">
     <thead class="table-primary">
       <tr>
@@ -150,5 +152,11 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <p class="text-center">
+    <strong>No Documents to display.</strong><br />
+    <em>Go to <a href="/admin/add-doc">Add Document</a></em>
+  </p>
+  {% endif %}
 </div>
 {% endblock %}

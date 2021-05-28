@@ -35,6 +35,7 @@
   {% endif %} {% endif %}
   <h1>Add Document</h1>
   <hr />
+  {% if citizen_id_list %}
   <form
     class="pt-3 px-5"
     action="http://localhost:5000/admin/add-doc"
@@ -81,7 +82,14 @@
         >
       </div>
       <div class="col-6">
-        <input type="text" name="key" id="key" class="form-control" required />
+        <input
+          type="text"
+          name="key"
+          id="key"
+          class="form-control"
+          required
+          autocomplete="off"
+        />
       </div>
     </div>
     <div class="row p-2">
@@ -91,12 +99,25 @@
         >
       </div>
       <div class="col-6">
-        <input type="file" name="doc" id="doc" class="form-control" required />
+        <input
+          type="file"
+          accept="image/*"
+          name="doc"
+          id="doc"
+          class="form-control"
+          required
+        />
       </div>
     </div>
     <div class="text-center p-3">
       <button type="submit" class="btn btn-primary">Add</button>
     </div>
   </form>
+  {% else %}
+  <p class="text-center">
+    <strong>No Citizens are availabe.</strong><br />
+    <em>Please <a href="/admin/add-citizen">Add Citizen</a> first.</em>
+  </p>
+  {% endif %}
 </div>
 {% endblock %}

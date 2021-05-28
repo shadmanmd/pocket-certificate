@@ -7,6 +7,8 @@ from string import ascii_letters, digits
 from random import choices
 from cryptography.fernet import Fernet
 
+from Python.sendMail import accountCreatedMail
+
 def convertToBinaryData(fileName):
     try:
         file = open(fileName,'rb')
@@ -51,6 +53,8 @@ def adminAddCitizen(form,files):
 
         conn.commit()
         print("Query executed")
+
+        accountCreatedMail(name, email_id, citizen_id, pwd)
 
         return "Citizen added successfully"
     except Exception as e:

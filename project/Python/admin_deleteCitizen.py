@@ -7,6 +7,7 @@ def adminDeleteCitizen(citizen_id):
 
         curr = conn.cursor()
         print("Cursor created")
+        curr.execute('PRAGMA foreign_keys = ON')
 
         query = "DELETE FROM citizen WHERE citizen_id = ?"
         curr.execute(query,(citizen_id,))

@@ -1,6 +1,7 @@
 import sqlite3 as sql;
 from werkzeug.utils import secure_filename;
 from Python.admin_addCitizen import convertToBinaryData
+from Python.sendMail import aadhaarAddedMail, panAddedMail, voterAddedMail, drivingAddedMail
 
 def getCitizenId():
     try: 
@@ -57,6 +58,21 @@ def adminAddDoc(form,files):
 
             conn.commit()
             print("Query executed")
+
+            print("Fetching details of citizen for sending mail")
+            query = "SELECT name,email FROM citizen WHERE citizen_id = ?"
+            curr.execute(query,(citizen_id,))
+            data = curr.fetchone()
+            print(data)
+
+            if doc_type == 'aadhaar':
+                aadhaarAddedMail(data[0], data[1], private_key)
+            elif doc_type == 'pan':
+                panAddedMail(data[0], data[1], private_key)
+            elif doc_type == 'voter':
+                voterAddedMail(data[0], data[1], private_key)
+            elif doc_type == 'driving':
+                drivingAddedMail(data[0], data[1], private_key)
 
             return "Document added successfully"
     except Exception as e:

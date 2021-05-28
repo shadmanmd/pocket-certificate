@@ -73,6 +73,7 @@
               id="email-id"
               name="email-id"
               required
+              autocomplete="off"
             />
           </div>
         </div>
@@ -93,6 +94,7 @@
               id="name"
               name="name"
               required
+              autocomplete="off"
             />
           </div>
         </div>
@@ -111,6 +113,7 @@
               id="contact-no"
               name="contact-no"
               required
+              autocomplete="off"
             />
           </div>
         </div>
@@ -167,6 +170,7 @@
               name="address"
               value="address"
               required
+              autocomplete="off"
             ></textarea>
           </div>
         </div>
@@ -177,7 +181,13 @@
             <label for="image" class="form-label">Profile Photo</label>
           </div>
           <div class="col-9">
-            <input type="file" class="form-control" id="image" name="image" />
+            <input
+              type="file"
+              accept="image/*"
+              class="form-control"
+              id="image"
+              name="image"
+            />
           </div>
         </div>
       </div>
