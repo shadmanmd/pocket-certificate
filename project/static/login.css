@@ -1,9 +1,11 @@
 .full-page {
   height: 100vh;
   display: block;
+  background-image: url("tunnel.jpg");
 }
 
 form {
+  background-color: white;
   display: inline-block;
   margin-left: auto;
   margin-right: auto;

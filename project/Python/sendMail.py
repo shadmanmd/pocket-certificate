@@ -25,7 +25,7 @@ DO NOT SHARE OR FORWARD THIS MAIL.
 Thanks & Regards
 Admin
 Pocket Certificate"""
-    s.sendmail('mdshadmancrj@gmail.com', email, message)
+    s.sendmail(admin_mail, email, message)
     print('mail sent')
     s.quit()
 
@@ -52,7 +52,7 @@ DO NOT SHARE OR FORWARD THIS MAIL.
 Thanks & Regards
 Admin
 Pocket Certificate"""
-    s.sendmail('mdshadmancrj@gmail.com', email, message)
+    s.sendmail(admin_mail, email, message)
     print('mail sent')
     s.quit()
 
@@ -79,7 +79,7 @@ DO NOT SHARE OR FORWARD THIS MAIL.
 Thanks & Regards
 Admin
 Pocket Certificate"""
-    s.sendmail('mdshadmancrj@gmail.com', email, message)
+    s.sendmail(admin_mail, email, message)
     print('mail sent')
     s.quit()
 
@@ -106,7 +106,7 @@ DO NOT SHARE OR FORWARD THIS MAIL.
 Thanks & Regards
 Admin
 Pocket Certificate"""
-    s.sendmail('mdshadmancrj@gmail.com', email, message)
+    s.sendmail(admin_mail, email, message)
     print('mail sent')
     s.quit()
 
@@ -133,6 +133,6 @@ DO NOT SHARE OR FORWARD THIS MAIL.
 Thanks & Regards
 Admin
 Pocket Certificate"""
-    s.sendmail('mdshadmancrj@gmail.com', email, message)
+    s.sendmail(admin_mail, email, message)
     print('mail sent')
     s.quit()

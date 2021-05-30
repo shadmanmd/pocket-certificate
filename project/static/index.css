@@ -3,18 +3,17 @@ body {
   overflow-x: hidden;
 }
 
-.white {
-  text-align: center;
+.full-page {
+  height: 100vh;
+  background-image: url("files.jpg");
 }
 
-.row {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card {
-  width: unset;
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 a {

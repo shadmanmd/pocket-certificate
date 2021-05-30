@@ -6,28 +6,33 @@ block css %}<link
 />
 {% endblock %} {% block content %}
 
-<div class="container">
-  <h2 class="pt-3">Login as</h2>
-  <hr />
-  <div class="row">
-    <div class="card shadow m-5 p-5 text-center rounded border-5">
-      <img
-        class="card-img-top"
-        src="{{ url_for('static', filename='admin.jpg') }}"
-        alt="admin"
-      />
-      <div class="card-body">
-        <h3><a href="/admin/login">Admin</a></h3>
+<div class="row full-page">
+  <div class="col-7 ms-5 vertical-center">
+    <h1 class="display-1 pb-3">Welcome to Pocket Certificate</h1>
+    <div class="row">
+      <div class="col-6">
+        <div class="card shadow rounded">
+          <div class="card-body">
+            <h1>For Admins</h1>
+            <hr />
+            <p>Add, edit & delete citizens and documents for them.</p>
+            <a class="btn btn-primary" href="/admin/login">Login as Admin</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card shadow m-5 p-5 text-center rounded border-5">
-      <img
-        class="card-img-top"
-        src="{{ url_for('static', filename='citizen.jpg') }}"
-        alt="citizen"
-      />
-      <div class="card-body">
-        <h3><a href="/citizen/login">Citizen</a></h3>
+      <div class="col-6">
+        <div class="card shadow rounded">
+          <div class="card-body">
+            <h1>For Citizens</h1>
+            <hr />
+            <p>
+              View and download documents. Submit your feedback to the admin.
+            </p>
+            <a class="btn btn-primary" href="/citizen/login"
+              >Login as Citizen</a
+            >
+          </div>
+        </div>
       </div>
     </div>
   </div>
