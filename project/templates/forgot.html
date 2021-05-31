@@ -1,0 +1,43 @@
+{% extends "layout.html" %} {% block title %}Forgot Password{% endblock %} {%
+block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='login.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="full-page d-flex align-items-center text-center">
+  <form
+    action="http://localhost:5000/forgot"
+    method="POST"
+    class="text-center border rounded border-5 p-5 shadow"
+  >
+    {% if msg %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ msg }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endif %}
+    <h1 class="mb-3">Enter your Citizen ID</h1>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+        name="citizen-id"
+        autocomplete="off"
+      />
+      <label for="floatingInput">Citizen ID</label>
+    </div>
+    <div class="text-center p-2">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <small class="float-start"><a href="/">&lt&lt Back to Home</a></small>
+  </form>
+</div>
+{% endblock %}

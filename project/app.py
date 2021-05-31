@@ -20,6 +20,15 @@ def logout():
 
 
 
+@app.route('/forgot', methods=['GET', 'POST'])
+def forgot():
+    if request.method == 'POST':
+        citizen_id = request.form['citizen-id']
+        msg = forgotPassword(citizen_id)
+        return render_template('forgot.html', msg=msg)
+    return render_template('forgot.html')
+
+
 # ------------------------------- ADMIN ------------------------------------
 
 
@@ -156,7 +165,6 @@ def manageDoc():
 def downloadAadhaar(citizen_id):
     if 'username' in session:
         return adminDownloadAadhaar(citizen_id)
-        return redirect(url_for('manageDoc'))
     else:
         session['message'] = 'Please login'
         return redirect(url_for('index'))
@@ -167,7 +175,6 @@ def downloadAadhaar(citizen_id):
 def downloadPan(citizen_id):
     if 'username' in session:
         return adminDownloadPan(citizen_id)
-        return redirect(url_for('manageDoc'))
     else:
         session['message'] = 'Please login'
         return redirect(url_for('index'))
@@ -178,7 +185,6 @@ def downloadPan(citizen_id):
 def downloadVoter(citizen_id):
     if 'username' in session:
         return adminDownloadVoter(citizen_id)
-        return redirect(url_for('manageDoc'))
     else:
         session['message'] = 'Please login'
         return redirect(url_for('index'))
@@ -189,7 +195,6 @@ def downloadVoter(citizen_id):
 def downloadDriving(citizen_id):
     if 'username' in session:
         return adminDownloadDriving(citizen_id)
-        return redirect(url_for('manageDoc'))
     else:
         session['message'] = 'Please login'
         return redirect(url_for('index'))

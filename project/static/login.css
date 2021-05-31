@@ -11,3 +11,7 @@ form {
   margin-right: auto;
   text-align: left;
 }
+
+a {
+  text-decoration: none;
+}

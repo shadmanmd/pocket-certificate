@@ -40,7 +40,11 @@
         name="username"
         autocomplete="off"
       />
+      {% if value=="Citizen" %}
+      <label for="floatingInput">Citizen ID</label>
+      {% else %}
       <label for="floatingInput">User ID</label>
+      {% endif %}
     </div>
     <div class="form-floating">
       <input
@@ -55,8 +59,10 @@
     <div class="text-center p-2">
       <button type="submit" class="btn btn-primary">LOGIN</button>
     </div>
-    <small class="float-start"><a href="/">Back to Home</a></small>
-    <small class="float-end"><a href="/">Forgot Password?</a></small>
+    <small class="float-start"><a href="/">&lt&lt Back to Home</a></small>
+    {% if value=="Citizen" %}
+    <small class="float-end"><a href="/forgot">Forgot Password?</a></small>
+    {% endif %}
   </form>
 </div>
 {% endblock %}

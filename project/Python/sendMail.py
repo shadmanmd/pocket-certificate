@@ -136,3 +136,30 @@ Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
     print('mail sent')
     s.quit()
+
+
+
+def forgotPasswordMail(name, email, citizen_id, new_password):
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    print('Ready to send mail...')
+    s.starttls()
+    s.login(admin_mail, admin_password)
+    print('Mail Login successful...')
+    message = """From: Pocket Certificate
+To: """ + name + """<""" + email + """>
+Subject: New Login Password
+Hi """ + name + """!
+
+Your new login credentials is generated as per your request from the forgot password section of Pocket Certificate
+
+Citizen ID: """ + citizen_id + """
+Password: """ + new_password + """
+
+DO NOT SHARE OR FORWARD THIS MAIL.
+
+Thanks & Regards
+Admin
+Pocket Certificate"""
+    s.sendmail(admin_mail, email, message)
+    print('mail sent')
+    s.quit()
