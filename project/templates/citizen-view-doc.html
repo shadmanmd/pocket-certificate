@@ -12,6 +12,27 @@
   </div>
 </nav>
 <div class="container p-5">
+  {% if msg %} {% if msg[0]=='A' %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ msg }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endif %} {% endif %}
   <h1 class="pb-2">Your Documents</h1>
   <div class="row">
     <div class="col-6 text-center px-5 pb-5">
@@ -23,6 +44,7 @@
       >
         <i class="fas fa-download"></i> Download Aadhaar
       </a>
+      <a href="/fogot-key/aadhaar">Forgot Private Key?</a>
       {% else %}
       <button disabled class="btn btn-lg btn-info m-5">
         <i class="fas fa-download"></i> Download Aadhaar
@@ -38,6 +60,7 @@
       >
         <i class="fas fa-download"></i> Download PAN
       </a>
+      <a href="/fogot-key/pan">Forgot Private Key?</a>
       {% else %}
       <button disabled class="btn btn-lg btn-info m-5">
         <i class="fas fa-download"></i> Download PAN
@@ -55,6 +78,7 @@
       >
         <i class="fas fa-download"></i> Download Voter ID
       </a>
+      <a href="/fogot-key/voter">Forgot Private Key?</a>
       {% else %}
       <button disabled class="btn btn-lg btn-info m-5">
         <i class="fas fa-download"></i> Download Voter ID
@@ -70,6 +94,7 @@
       >
         <i class="fas fa-download"></i> Download Driving Licence
       </a>
+      <a href="/fogot-key/driving">Forgot Private Key?</a>
       {% else %}
       <button disabled class="btn btn-lg btn-info m-5">
         <i class="fas fa-download"></i> Download Driving Licence

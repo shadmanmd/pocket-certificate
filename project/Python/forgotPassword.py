@@ -32,8 +32,8 @@ def forgotPassword(citizen_id):
             f = Fernet(key)
             password = f.encrypt(pwd.encode())
 
-            query = "UPDATE citizen SET password = ? WHERE citizen_id = ?"
-            curr.execute(query,(password, citizen_id))
+            query = "UPDATE citizen SET password = ?, fernet_key = ? WHERE citizen_id = ?"
+            curr.execute(query,(password, key, citizen_id))
 
             conn.commit()
             print("Password updated")

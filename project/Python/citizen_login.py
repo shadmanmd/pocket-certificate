@@ -25,6 +25,7 @@ def citizenExists(citizen_id):
 def checkPassword(key, encryptedPassword, inputPassword):
     f = Fernet(key)
     password = f.decrypt(encryptedPassword).decode()
+    print(password)
     if password == inputPassword:
         return True
     else:

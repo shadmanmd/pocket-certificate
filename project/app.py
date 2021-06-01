@@ -161,7 +161,7 @@ def manageDoc():
 
 
 
-@app.route('/downloads/aadhaar_id/<citizen_id>',methods=['POST','GET'])
+@app.route('/downloads/aadhaar_id/<citizen_id>')
 def downloadAadhaar(citizen_id):
     if 'username' in session:
         return adminDownloadAadhaar(citizen_id)
@@ -171,7 +171,7 @@ def downloadAadhaar(citizen_id):
 
 
 
-@app.route('/downloads/pan_id/<citizen_id>',methods=['POST','GET'])
+@app.route('/downloads/pan_id/<citizen_id>')
 def downloadPan(citizen_id):
     if 'username' in session:
         return adminDownloadPan(citizen_id)
@@ -181,7 +181,7 @@ def downloadPan(citizen_id):
 
 
 
-@app.route('/downloads/voter_id/<citizen_id>',methods=['POST','GET'])
+@app.route('/downloads/voter_id/<citizen_id>')
 def downloadVoter(citizen_id):
     if 'username' in session:
         return adminDownloadVoter(citizen_id)
@@ -191,7 +191,7 @@ def downloadVoter(citizen_id):
 
 
 
-@app.route('/downloads/driving_id/<citizen_id>',methods=['POST','GET'])
+@app.route('/downloads/driving_id/<citizen_id>')
 def downloadDriving(citizen_id):
     if 'username' in session:
         return adminDownloadDriving(citizen_id)
@@ -407,7 +407,11 @@ def viewDoc():
         docs = viewDocuments(citizen_id)
         if docs == None:
             return "<h1>Please login as citizen to view this.</h1>"
-        return render_template("citizen-view-doc.html", docs=docs, citizen_id=citizen_id)
+        msg = None
+        if 'message' in session:
+            msg = session['message']
+            session.pop('message', None)
+        return render_template("citizen-view-doc.html", docs=docs, citizen_id=citizen_id, msg=msg)
     else:
         session['message'] = 'Please login'
         return redirect(url_for('citizenLogin'))
@@ -428,6 +432,54 @@ def giveFeedback():
     else:
         session['message'] = 'Please login'
         return redirect(url_for('citizenLogin'))
+
+
+@app.route('/fogot-key/aadhaar')
+def forgotAadhaarKey():
+    if 'username' in session:
+        citizen_id = session['username']
+        msg = citizenForgotAadhaarKey(citizen_id)
+        if msg == None:
+            return '<h1>Please login as citizen to view this.</h1>'
+        session['message'] = msg
+        return redirect(url_for('viewDoc'))
+
+
+
+@app.route('/fogot-key/pan')
+def forgotPanKey():
+    if 'username' in session:
+        citizen_id = session['username']
+        msg = citizenForgotPanKey(citizen_id)
+        if msg == None:
+            return '<h1>Please login as citizen to view this.</h1>'
+        session['message'] = msg
+        return redirect(url_for('viewDoc'))
+
+
+
+@app.route('/fogot-key/voter')
+def forgotVoterKey():
+    if 'username' in session:
+        citizen_id = session['username']
+        msg = citizenForgotVoterKey(citizen_id)
+        if msg == None:
+            return '<h1>Please login as citizen to view this.</h1>'
+        session['message'] = msg
+        return redirect(url_for('viewDoc'))
+
+
+
+@app.route('/fogot-key/driving')
+def forgotDrivingKey():
+    if 'username' in session:
+        citizen_id = session['username']
+        msg = citizenForgotDrivingKey(citizen_id)
+        if msg == None:
+            return '<h1>Please login as citizen to view this.</h1>'
+        session['message'] = msg
+        return redirect(url_for('viewDoc'))
+
 
 
 @app.route('/image/<citizen_id>')

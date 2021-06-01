@@ -22,3 +22,7 @@ from Python.citizen_login import *
 from Python.citizen_dashboard import *
 from Python.citizen_viewDoc import *
 from Python.citizen_giveFeedback import *
+from Python.citizen_forgotAadhaarKey import *
+from Python.citizen_forgotPanKey import *
+from Python.citizen_forgotDrivingKey import *
+from Python.citizen_forgotVoterKey import *

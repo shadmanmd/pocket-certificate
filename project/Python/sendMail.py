@@ -26,8 +26,9 @@ Thanks & Regards
 Admin
 Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
-    print('mail sent')
+    print('Mail sent ...')
     s.quit()
+    print('Mail Logout successful...')
 
 
 
@@ -53,8 +54,9 @@ Thanks & Regards
 Admin
 Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
-    print('mail sent')
+    print('Mail sent ...')
     s.quit()
+    print('Mail Logout successful...')
 
 
 
@@ -80,8 +82,9 @@ Thanks & Regards
 Admin
 Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
-    print('mail sent')
+    print('Mail sent ...')
     s.quit()
+    print('Mail Logout successful...')
 
 
 
@@ -107,8 +110,9 @@ Thanks & Regards
 Admin
 Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
-    print('mail sent')
+    print('Mail sent ...')
     s.quit()
+    print('Mail Logout successful...')
 
 
 
@@ -134,8 +138,9 @@ Thanks & Regards
 Admin
 Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
-    print('mail sent')
+    print('Mail sent ...')
     s.quit()
+    print('Mail Logout successful...')
 
 
 
@@ -161,5 +166,106 @@ Thanks & Regards
 Admin
 Pocket Certificate"""
     s.sendmail(admin_mail, email, message)
-    print('mail sent')
+    print('Mail sent ...')
     s.quit()
+    print('Mail Logout successful...')
+
+
+
+def forgotAadhaarKeyMail(name, email, aadhaar_key):
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    print('Ready to send mail...')
+    s.starttls()
+    s.login(admin_mail, admin_password)
+    print('Mail Login successful...')
+    message = """From: Pocket Certificate
+To: """ + name + """<""" + email + """>
+Subject: Your Aadhaar Key
+Hi """ + name + """!
+
+The private key to download your Aadhaar is : """ + aadhaar_key + """
+
+DO NOT SHARE OR FORWARD THIS MAIL.
+
+Thanks & Regards
+Admin
+Pocket Certificate"""
+    s.sendmail(admin_mail, email, message)
+    print('Mail sent ...')
+    s.quit()
+    print('Mail Logout successful...')
+
+
+
+def forgotPanKeyMail(name, email, pan_key):
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    print('Ready to send mail...')
+    s.starttls()
+    s.login(admin_mail, admin_password)
+    print('Mail Login successful...')
+    message = """From: Pocket Certificate
+To: """ + name + """<""" + email + """>
+Subject: Your PAN Key
+Hi """ + name + """!
+
+The private key to download your PAN is : """ + pan_key + """
+
+DO NOT SHARE OR FORWARD THIS MAIL.
+
+Thanks & Regards
+Admin
+Pocket Certificate"""
+    s.sendmail(admin_mail, email, message)
+    print('Mail sent ...')
+    s.quit()
+    print('Mail Logout successful...')
+
+
+
+def forgotVoterKeyMail(name, email, voter_key):
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    print('Ready to send mail...')
+    s.starttls()
+    s.login(admin_mail, admin_password)
+    print('Mail Login successful...')
+    message = """From: Pocket Certificate
+To: """ + name + """<""" + email + """>
+Subject: Your Voter ID Key
+Hi """ + name + """!
+
+The private key to download your Voter ID is : """ + voter_key + """
+
+DO NOT SHARE OR FORWARD THIS MAIL.
+
+Thanks & Regards
+Admin
+Pocket Certificate"""
+    s.sendmail(admin_mail, email, message)
+    print('Mail sent ...')
+    s.quit()
+    print('Mail Logout successful...')
+
+
+
+def forgotDrivingKeyMail(name, email, driving_key):
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    print('Ready to send mail...')
+    s.starttls()
+    s.login(admin_mail, admin_password)
+    print('Mail Login successful...')
+    message = """From: Pocket Certificate
+To: """ + name + """<""" + email + """>
+Subject: Your Driving Licence Key
+Hi """ + name + """!
+
+The private key to download your Driving Licence is : """ + driving_key + """
+
+DO NOT SHARE OR FORWARD THIS MAIL.
+
+Thanks & Regards
+Admin
+Pocket Certificate"""
+    s.sendmail(admin_mail, email, message)
+    print('Mail sent ...')
+    s.quit()
+    print('Mail Logout successful...')
