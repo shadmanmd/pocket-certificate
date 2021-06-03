@@ -1,7 +1,12 @@
 {% extends "layout.html" %} {% block title %}Admin | Dashboard{% endblock %} {%
-block content %}
-<nav class="navbar navbar-light bg-info p-2">
-  <a href="/admin/dashboard" class="navbar-brand">Welcome Admin</a>
+block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='admin.css') }}"
+/>
+{% endblock %} {% block content %}
+<nav class="navbar p-2">
+  <a href="/admin/dashboard" class="navbar-brand"></a>
   <div class="float-end">
     <a href="/logout" class="btn btn-sm btn-danger" role="button"
       ><i class="fas fa-power-off"></i> LOGOUT</a
@@ -12,7 +17,7 @@ block content %}
   <div class="row">
     <div class="col-6 text-center">
       <a
-        class="btn btn-lg btn-outline-info m-5"
+        class="btn btn-lg btn-outline-primary m-5"
         role="button"
         href="/admin/add-citizen"
       >
@@ -21,7 +26,7 @@ block content %}
     </div>
     <div class="col-6 text-center">
       <a
-        class="btn btn-lg btn-outline-info m-5"
+        class="btn btn-lg btn-outline-primary m-5"
         role="button"
         href="/admin/manage-citizen"
       >
@@ -32,7 +37,7 @@ block content %}
   <div class="row">
     <div class="col-6 text-center">
       <a
-        class="btn btn-lg btn-outline-info m-5"
+        class="btn btn-lg btn-outline-primary m-5"
         role="button"
         href="/admin/add-doc"
       >
@@ -41,7 +46,7 @@ block content %}
     </div>
     <div class="col-6 text-center">
       <a
-        class="btn btn-lg btn-outline-info mx-4 my-5"
+        class="btn btn-lg btn-outline-primary mx-4 my-5"
         role="button"
         href="/admin/manage-doc"
       >
@@ -51,7 +56,7 @@ block content %}
   </div>
   <div class="text-center">
     <a
-      class="btn btn-lg btn-outline-info m-5"
+      class="btn btn-lg btn-outline-primary m-5"
       role="button"
       href="/admin/view-feedbacks"
     >

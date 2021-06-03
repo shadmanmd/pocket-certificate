@@ -1,7 +1,12 @@
 {% extends "layout.html" %} {% block title %}Admin | Manage Citizens{% endblock
-%} {% block content %}
-<nav class="navbar navbar-light bg-info p-2">
-  <a href="/admin/dashboard" class="navbar-brand">Welcome Admin</a>
+%} {% block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='admin.css') }}"
+/>
+{% endblock %} {% block content %}
+<nav class="navbar p-2">
+  <a href="/admin/dashboard" class="navbar-brand"></a>
   <div class="float-end">
     <a href="/admin/dashboard" class="btn btn-sm btn-success" role="button"
       ><i class="fas fa-home"></i> DASHBOARD</a
@@ -37,7 +42,7 @@
   <hr class="mb-2" />
   {% if citizenDetail_list %}
   <table class="table table-hover table-bordered border-info">
-    <thead class="table-info">
+    <thead class="bg-primary text-white">
       <tr>
         <td><strong>Citizen ID</strong></td>
         <td><strong>Name</strong></td>
