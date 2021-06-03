@@ -1,7 +1,12 @@
 {% extends "layout.html" %} {% block title %}Citizen | View Documents{% endblock
-%} {% block content %}
-<nav class="navbar navbar-light bg-info p-2">
-  <a href="/citizen/dashboard" class="navbar-brand">Welcome {{docs[1]}}</a>
+%} {% block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='citizen.css') }}"
+/>
+{% endblock %} {% block content %}
+<nav class="navbar p-2">
+  <a href="/citizen/dashboard" class="navbar-brand"></a>
   <div class="float-end">
     <a href="/citizen/dashboard" class="btn btn-sm btn-success" role="button"
       ><i class="fas fa-home"></i> DASHBOARD</a
@@ -33,20 +38,22 @@
     ></button>
   </div>
   {% endif %} {% endif %}
-  <h1 class="pb-2">Your Documents</h1>
-  <div class="row">
+  <h1>Your Documents</h1>
+  <hr />
+  <div class="row pt-3">
     <div class="col-6 text-center px-5 pb-5">
       {% if docs[2] %}
       <a
         href="/downloads/aadhaar_id/{{docs[0]}}"
         onclick="confirmAadhaar('{{docs[2]}}', event)"
-        class="btn btn-lg btn-info m-5"
+        class="btn btn-primary"
       >
         <i class="fas fa-download"></i> Download Aadhaar
       </a>
+      <br />
       <a href="/fogot-key/aadhaar">Forgot Private Key?</a>
       {% else %}
-      <button disabled class="btn btn-lg btn-info m-5">
+      <button disabled class="btn btn-primary">
         <i class="fas fa-download"></i> Download Aadhaar
       </button>
       {% endif %}
@@ -56,13 +63,14 @@
       <a
         href="/downloads/pan_id/{{docs[0]}}"
         onclick="confirmPan('{{docs[3]}}', event)"
-        class="btn btn-lg btn-info m-5"
+        class="btn btn-primary"
       >
         <i class="fas fa-download"></i> Download PAN
       </a>
+      <br />
       <a href="/fogot-key/pan">Forgot Private Key?</a>
       {% else %}
-      <button disabled class="btn btn-lg btn-info m-5">
+      <button disabled class="btn btn-primary">
         <i class="fas fa-download"></i> Download PAN
       </button>
       {% endif %}
@@ -74,13 +82,14 @@
       <a
         href="/downloads/voter_id/{{docs[0]}}"
         onclick="confirmVoter('{{docs[4]}}', event)"
-        class="btn btn-lg btn-info m-5"
+        class="btn btn-primary"
       >
         <i class="fas fa-download"></i> Download Voter ID
       </a>
+      <br />
       <a href="/fogot-key/voter">Forgot Private Key?</a>
       {% else %}
-      <button disabled class="btn btn-lg btn-info m-5">
+      <button disabled class="btn btn-primary">
         <i class="fas fa-download"></i> Download Voter ID
       </button>
       {% endif %}
@@ -90,13 +99,14 @@
       <a
         href="/downloads/driving_id/{{docs[0]}}"
         onclick="confirmDriving('{{docs[5]}}', event)"
-        class="btn btn-lg btn-info m-5"
+        class="btn btn-primary"
       >
         <i class="fas fa-download"></i> Download Driving Licence
       </a>
+      <br />
       <a href="/fogot-key/driving">Forgot Private Key?</a>
       {% else %}
-      <button disabled class="btn btn-lg btn-info m-5">
+      <button disabled class="btn btn-primary">
         <i class="fas fa-download"></i> Download Driving Licence
       </button>
       {% endif %}

@@ -1,9 +1,12 @@
 {% extends "layout.html" %} {% block title %}Citizen | Dashboard{% endblock %}
-{% block content %}
-<nav class="navbar navbar-light bg-info p-2">
-  <a href="/citizen/dashboard" class="navbar-brand"
-    >Welcome {{citizen_data[1]}}</a
-  >
+{% block css %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='citizen.css') }}"
+/>
+{% endblock %} {% block content %}
+<nav class="navbar p-2">
+  <a href="/citizen/dashboard" class="navbar-brand"></a>
   <div class="float-end">
     <a href="/logout" class="btn btn-sm btn-danger" role="button"
       ><i class="fas fa-power-off"></i> LOGOUT</a
@@ -14,7 +17,7 @@
   <div class="row pb-5">
     <div class="col-6 text-center">
       <a
-        class="btn btn-lg btn-outline-info m-4"
+        class="btn btn-lg btn-outline-primary m-4"
         role="button"
         href="/citizen/doc"
       >
@@ -23,7 +26,7 @@
     </div>
     <div class="col-6 text-center">
       <a
-        class="btn btn-lg btn-outline-info m-4"
+        class="btn btn-lg btn-outline-primary m-4"
         role="button"
         href="/citizen/feedback"
       >
@@ -34,31 +37,61 @@
   <div class="container">
     <h1>Your Profile</h1>
     <hr />
-    <img
-      style="height: 200px; width: 200px"
-      class="img-thumbnail float-end"
-      {%
-      if(citizen_data[7])
-      %}
-      src="{{ url_for('image_route', citizen_id=citizen_data[0]) }}"
-      {%
-      else
-      %}
-      src="{{ url_for('static', filename='user.png') }}"
-      {%
-      endif
-      %}
-      alt="user-img"
-    />
-    <p>
-      <strong>Citizen ID: </strong> {{ citizen_data[0] }} <br />
-      <strong>Name: </strong> {{ citizen_data[1] }} <br />
-      <strong>Email ID: </strong> {{ citizen_data[2] }} <br />
-      <strong>Contact No.: </strong> {{ citizen_data[3] }} <br />
-      <strong>Gender: </strong> {{ citizen_data[4] }} <br />
-      <strong>Date of Birth: </strong> {{ citizen_data[5] }} <br />
-      <strong>Address: </strong> {{ citizen_data[6] }} <br />
-    </p>
+    <div class="row">
+      <div class="col-9">
+        <div class="row m-3">
+          <div class="col-3"><strong>Citizen ID: </strong></div>
+          <div class="col-9">{{ citizen_data[0] }}</div>
+        </div>
+        <div class="row m-3">
+          <div class="col-3"><strong>Name: </strong></div>
+          <div class="col-9">{{ citizen_data[1] }}</div>
+        </div>
+        <div class="row m-3">
+          <div class="col-3"><strong>Email ID: </strong></div>
+          <div class="col-9">{{ citizen_data[2] }}</div>
+        </div>
+        <div class="row m-3">
+          <div class="col-3"><strong>Contact No.: </strong></div>
+          <div class="col-9">{{ citizen_data[3] }}</div>
+        </div>
+        <div class="row m-3">
+          <div class="col-3"><strong>Gender: </strong></div>
+          <div class="col-9">
+            {% if citizen_data[4] == 'male' %} Male {% endif %} {% if
+            citizen_data[4] == 'female' %} Female {% endif %} {% if
+            citizen_data[4] == 'prefer-not-to-say' %} Prefer not to say {% endif
+            %}
+          </div>
+        </div>
+        <div class="row m-3">
+          <div class="col-3"><strong>Date of Birth: </strong></div>
+          <div class="col-9">{{ citizen_data[5] }}</div>
+        </div>
+        <div class="row m-3">
+          <div class="col-3"><strong>Address: </strong></div>
+          <div class="col-9">{{ citizen_data[6] }}</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <img
+          style="height: 200px; width: 200px"
+          class="img-thumbnail float-end"
+          {%
+          if(citizen_data[7])
+          %}
+          src="{{ url_for('image_route', citizen_id=citizen_data[0]) }}"
+          {%
+          else
+          %}
+          src="{{ url_for('static', filename='user.png') }}"
+          {%
+          endif
+          %}
+          alt="user-img"
+        />
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
